@@ -13,7 +13,7 @@
     --bg:#0a0a0a; --bg2:#111; --bg3:#161616;
     --gold:#c9a84c; --gold2:#e8c97a;
     --text:#e8e4dc; --muted:#888; --border:#222;
-    --transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -23,7 +23,7 @@
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     padding: 25px 60px; display: flex; justify-content: space-between; align-items: center;
-    background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px);
+    background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.03);
   }
   .nav-logo { font-size: .9rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
   .nav-links { display: flex; gap: 40px; list-style: none; }
@@ -31,57 +31,75 @@
   .nav-links a:hover { color: var(--gold); }
 
   /* HERO */
-  #hero { height: 100vh; position: relative; display: flex; align-items: flex-end; padding: 0 60px 100px; overflow: hidden; }
-  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg) 10%, transparent 70%); }
-  .hero-content { position: relative; z-index: 2; }
-  .hero-name { font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 400; line-height: 0.9; color: #fff; margin-bottom: 20px; }
-
+  #hero { height: 100vh; position: relative; display: flex; align-items: flex-end; padding: 0 10vw 120px; overflow: hidden; }
+  .hero-img { 
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; 
+    object-position: 80% center; 
+    filter: brightness(0.7); transition: transform 2s ease-out; z-index: 0;
+  }
+  #hero:hover .hero-img { transform: scale(1.05); }
+  .hero-overlay { 
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 50%, transparent 100%),
+                linear-gradient(to top, var(--bg) 5%, transparent 40%); 
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 600px; }
+  .hero-name { font-size: clamp(3.5rem, 10vw, 7.5rem); font-weight: 400; line-height: 0.9; color: #fff; margin-bottom: 20px; }
+  .hero-sub { margin-bottom: 35px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem; }
   .btn-primary {
-    display: inline-block; padding: 16px 40px; border: 1px solid var(--gold); color: var(--gold);
+    display: inline-block; padding: 16px 42px; border: 1px solid var(--gold); color: var(--gold);
     text-decoration: none; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; transition: var(--transition);
   }
   .btn-primary:hover { background: var(--gold); color: #000; transform: translateY(-5px); }
 
-  /* ABOUT - Expanded */
+  /* ABOUT */
   #about { padding: 140px 60px; background: var(--bg); }
   .about-container { max-width: 1200px; margin: 0 auto; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 100px; align-items: center; }
   .about-photo-wrap { position: relative; }
-  .about-photo-wrap::after { content: ''; position: absolute; inset: 15px -15px -15px 15px; border: 1px solid var(--gold); z-index: 0; }
-  .about-photo { width: 100%; position: relative; z-index: 1; filter: grayscale(0.3); }
-  .about-text h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 30px; color: #fff; }
-  .about-text p { font-size: 1.05rem; color: #aaa; margin-bottom: 20px; }
-  .about-accent { color: var(--gold); font-size: 1.2rem; font-style: italic; margin: 30px 0; padding-left: 20px; border-left: 2px solid var(--gold); }
+  .about-photo-wrap::after { content: ''; position: absolute; inset: 20px -20px -20px 20px; border: 1px solid var(--gold); z-index: 0; }
+  .about-photo { width: 100%; position: relative; z-index: 1; filter: grayscale(0.2); }
+  .about-text h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 35px; color: #fff; }
+  .about-text p { font-size: 1.05rem; color: #aaa; margin-bottom: 22px; }
+  .about-accent { color: var(--gold); font-size: 1.25rem; font-style: italic; margin: 35px 0; padding-left: 25px; border-left: 2px solid var(--gold); line-height: 1.5; }
 
-  /* GALLERY - 4 IN A ROW, NO SCROLL */
-  .gallery-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 0; background: #000; }
-  .gallery-row img { width: 100%; aspect-ratio: 1/1; object-fit: cover; filter: brightness(0.6) grayscale(1); transition: var(--transition); cursor: crosshair; }
-  .gallery-row img:hover { filter: brightness(1) grayscale(0); transform: scale(1.05); z-index: 2; }
+  /* GALLERY */
+  .gallery-row { display: grid; grid-template-columns: repeat(4, 1fr); background: #000; }
+  .gallery-row img { width: 100%; aspect-ratio: 1/1; object-fit: cover; filter: brightness(0.5) grayscale(1); transition: var(--transition); cursor: pointer; }
+  .gallery-row img:hover { filter: brightness(1) grayscale(0); transform: scale(1.03); z-index: 2; }
 
-  /* VERTICAL STORYTELLING VIDEO SECTION */
+  /* STORYTELLING VIDEOS */
   #video { padding: 140px 60px; background: var(--bg2); }
-  .story-item { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .story-item { 
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; 
+    margin-bottom: 140px; max-width: 1200px; margin-left: auto; margin-right: auto; 
+  }
   .story-item:nth-child(even) { direction: rtl; }
-  .story-item:nth-child(even) .story-text { direction: ltr; }
-  .story-video { width: 100%; aspect-ratio: 16/9; background: #000; border: 1px solid var(--border); transition: var(--transition); }
-  .story-video:hover { border-color: var(--gold); transform: translateY(-5px); }
-  .story-video iframe { width: 100%; height: 100%; border: 0; }
-  .story-text h3 { font-size: 1.8rem; color: var(--gold); margin-bottom: 20px; font-weight: 400; }
-  .story-text p { color: var(--muted); font-size: 0.95rem; }
+  .story-item:nth-child(even) .story-text { direction: ltr; text-align: left; }
+  .story-video { width: 100%; aspect-ratio: 16/9; background: #000; border: 1px solid var(--border); transition: var(--transition); position: relative; }
+  .story-video:hover { border-color: var(--gold); }
+  
+  /* Контейнер для API плеера */
+  .yt-player { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-  /* CONTACT & ICONS */
-  #contact { padding: 140px 60px; text-align: center; background: var(--bg); }
-  .social-icons { display: flex; justify-content: center; gap: 40px; margin-top: 50px; }
-  .social-icons a { color: var(--muted); font-size: 2rem; transition: var(--transition); }
+  .story-text h3 { font-size: 1.8rem; color: var(--gold); margin-bottom: 20px; font-weight: 400; letter-spacing: 1px; }
+  .story-text p { color: var(--muted); font-size: 1rem; line-height: 1.7; }
+
+  /* CONTACT & SOCIAL */
+  #contact { padding: 140px 60px; text-align: center; }
+  .contact-link { color: var(--gold); text-decoration: none; font-size: clamp(1.5rem, 4vw, 2.5rem); transition: 0.3s; display: block; margin: 30px 0; }
+  .contact-link:hover { opacity: 0.7; }
+  .social-icons { display: flex; justify-content: center; gap: 45px; margin-top: 50px; }
+  .social-icons a { color: var(--muted); font-size: 2.2rem; transition: var(--transition); }
   .social-icons a:hover { color: var(--gold); transform: translateY(-8px); }
 
-  /* RESPONSIVENESS */
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     nav { padding: 20px; }
     .nav-links { display: none; }
-    #about, #video, #contact { padding: 80px 20px; }
-    .about-grid, .story-item { grid-template-columns: 1fr; gap: 40px; }
+    #hero { padding: 0 30px 80px; align-items: center; text-align: center; }
+    .hero-img { object-position: center center; }
+    .hero-overlay { background: rgba(0,0,0,0.6); }
+    .about-grid, .story-item { grid-template-columns: 1fr; gap: 50px; }
     .story-item:nth-child(even) { direction: ltr; }
     .gallery-row { grid-template-columns: 1fr 1fr; }
   }
@@ -102,8 +120,8 @@
   <img class="hero-img" src="photo7.jpg" alt="Anatoli Taran">
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <div class="hero-sub">Accordionist · Composer</div>
     <div class="hero-name">Anatoli<br>Taran</div>
-    <div style="margin-bottom: 30px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; font-size: 0.75rem;">Accordionist · Composer</div>
     <a href="#contact" class="btn-primary">Book a Performance</a>
   </div>
 </section>
@@ -115,17 +133,11 @@
         <img src="photo8.jpg" class="about-photo" alt="Anatoli Taran">
       </div>
       <div class="about-text">
-        <div class="section-label" style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.65rem;">
-          The Artist <span style="height: 1px; width: 50px; background: var(--border);"></span>
-        </div>
+        <div class="section-label" style="color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; margin-bottom: 20px;">The Artist</div>
         <h2>One of Eastern Europe's leading accordionists</h2>
         <p>Anatoli Taran is a Belarusian accordionist based in Warsaw, widely recognized for his technically exceptional playing and innovative approach to the instrument. His distinctive sound bridges jazz, tango, and contemporary music — pushing the accordion far beyond its traditional boundaries.</p>
-        
-        <div class="about-accent">
-          Bridging the gap between classical heritage and modern improvisation.
-        </div>
-
-        <p>A fixture on the European concert circuit, Taran has performed in sold-out venues across Belarus, Lithuania, France, Switzerland and beyond. He is a juror at the International Accordion Prize of Castelfidardo (Italy) and an endorsed artist of Victoria Accordions.</p>
+        <div class="about-accent">"A fixture on the European concert circuit, performing in sold-out venues from France to Switzerland."</div>
+        <p>He is a juror at the International Accordion Prize of Castelfidardo (Italy) and an endorsed artist of Victoria Accordions.</p>
         <p>Today based in Warsaw, he performs regularly at the city's most atmospheric venues while continuing to develop his ensemble projects for European audiences.</p>
       </div>
     </div>
@@ -133,60 +145,60 @@
 </section>
 
 <div class="gallery-row">
-  <img src="photo4.jpg" alt="Gallery 1">
-  <img src="photo5.jpg" alt="Gallery 2">
-  <img src="photo3.jpg" alt="Gallery 3">
-  <img src="photo2.jpg" alt="Gallery 4">
+  <img src="photo4.jpg" alt="1">
+  <img src="photo5.jpg" alt="2">
+  <img src="photo3.jpg" alt="3">
+  <img src="photo2.jpg" alt="4">
 </div>
 
 <section id="video">
-  <div class="section-label" style="text-align: center; margin-bottom: 80px; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem;">Live Performances</div>
+  <div class="section-label" style="text-align: center; margin-bottom: 80px; color: var(--gold); text-transform: uppercase; letter-spacing: 5px; font-size: 0.7rem;">Selected Works</div>
 
   <div class="story-item">
     <div class="story-video">
-      <iframe src="https://www.youtube.com/embed/GiYmHs3wXsc" allowfullscreen title="Live 1"></iframe>
+      <div id="player1" class="yt-player" data-video-id="GiYmHs3wXsc"></div>
     </div>
     <div class="story-text">
-      <h3>The Art of Solo Performance</h3>
-      <p>Technical mastery meets deep emotional expression. Experience the unique sound of the Victoria Accordion in an intimate concert setting.</p>
+      <h3>The Virtuoso Sound</h3>
+      <p>Technical precision meets emotional depth. This performance showcases the full range of the accordion as a lead solo instrument.</p>
     </div>
   </div>
 
   <div class="story-item">
     <div class="story-video">
-      <iframe src="https://www.youtube.com/embed/vwvga0sfVV0" allowfullscreen title="Live 2"></iframe>
+      <div id="player2" class="yt-player" data-video-id="vwvga0sfVV0"></div>
     </div>
     <div class="story-text">
-      <h3>Jazz & Contemporary Fusion</h3>
-      <p>Exploring modern rhythms and harmonies, pushing the boundaries of what the accordion can achieve in a contemporary ensemble.</p>
+      <h3>Modern Jazz Dialogues</h3>
+      <p>Exploring contemporary jazz structures and improvisational freedom with the Taran Trio.</p>
     </div>
   </div>
 
   <div class="story-item">
     <div class="story-video">
-      <iframe src="https://www.youtube.com/embed/4DDPJ4JOFe4" allowfullscreen title="Live 3"></iframe>
+      <div id="player3" class="yt-player" data-video-id="4DDPJ4JOFe4"></div>
     </div>
     <div class="story-text">
-      <h3>Tango Reimagined</h3>
-      <p>A tribute to the soul of Buenos Aires. From classic milongas to the revolutionary sounds of Astor Piazzolla.</p>
+      <h3>Tango Sensations</h3>
+      <p>A journey into the heart of Argentine Tango, reimagined through the lens of modern European performance.</p>
     </div>
   </div>
 
   <div class="story-item">
     <div class="story-video">
-      <iframe src="https://www.youtube.com/embed/HR2VEF0xLgI" allowfullscreen title="Live 4"></iframe>
+      <div id="player4" class="yt-player" data-video-id="HR2VEF0xLgI"></div>
     </div>
     <div class="story-text">
-      <h3>Collaborations & Ensembles</h3>
-      <p>The dialogue between instruments. Capturing the energy of live improvisation and artistic partnership on stage.</p>
+      <h3>Ensemble Energy</h3>
+      <p>The synergy of a full quartet. Blending folk roots with avant-garde musical explorations.</p>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="section-label" style="margin-bottom: 40px; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem;">Inquiries</div>
-  <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400;">Let's talk about your project</h2>
-  <a href="mailto:info@anatoltaran.com" style="color: var(--gold); text-decoration: none; font-size: 1.8rem; display: block; margin: 30px 0; transition: 0.3s;">info@anatoltaran.com</a>
+  <div class="section-label" style="color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem;">Inquiries</div>
+  <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400; margin-top: 20px;">Let's work together</h2>
+  <a href="mailto:info@anatoltaran.com" class="contact-link">info@anatoltaran.com</a>
   <p style="color: var(--muted); letter-spacing: 2px;">+48 575 832 607</p>
 
   <div class="social-icons">
@@ -199,6 +211,41 @@
 <footer style="padding: 60px; text-align: center; color: var(--muted); font-size: 0.65rem; letter-spacing: 3px; border-top: 1px solid var(--border);">
   © 2026 ANATOLI TARAN · WARSAW, POLAND
 </footer>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let players = [];
+
+  // Эта функция вызывается автоматически, когда API готово
+  function onYouTubeIframeAPIReady() {
+    const playerDivs = document.querySelectorAll('.yt-player');
+    
+    playerDivs.forEach((div, index) => {
+      let player = new YT.Player(div.id, {
+        height: '100%',
+        width: '100%',
+        videoId: div.getAttribute('data-video-id'),
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+      players.push(player);
+    });
+  }
+
+  // Когда состояние плеера меняется (нажали Play)
+  function onPlayerStateChange(event) {
+    // Если видео начало воспроизводиться (состояние 1)
+    if (event.data == YT.PlayerState.PLAYING) {
+      players.forEach(player => {
+        // Ставим на паузу все плееры, кроме того, который сейчас запустили
+        if (player !== event.target) {
+          player.pauseVideo();
+        }
+      });
+    }
+  }
+</script>
 
 </body>
 </html>
