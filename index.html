@@ -14,46 +14,53 @@
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.7}
 
+  /* NAV */
   nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.97),transparent)}
   .nav-logo{font-size:.95rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
   .nav-links{display:flex;gap:36px;list-style:none}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
   .nav-links a:hover{color:var(--gold)}
 
+  /* HERO */
   #hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:0 60px 100px}
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:brightness(0.99) contrast(1.1)}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 1%,transparent 100%),linear-gradient(to top,rgba(10,10,10,0.7) 20%,transparent 60%)}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85)1%,transparent 100%),linear-gradient(to top,rgba(10,10,10,0.7) 20%,transparent 60%)}
   .hero-content{position:relative;z-index:2}
   .hero-subtitle{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
   .hero-name{font-size:clamp(3.5rem,7vw,7rem);font-weight:400;line-height:1;letter-spacing:-.02em;color:#fff;margin-bottom:8px}
-  .hero-instrument{font-size:clamp(1rem,2vw,1.35rem);color:#aaa;font-style:italic;letter-spacing:.1em;margin-bottom:16px}
-  .hero-champion{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:48px;opacity:.9}
+  .hero-instrument{font-size:clamp(1rem,2vw,1.35rem);color:#aaa;font-style:italic;letter-spacing:.1em;margin-bottom:48px}
   .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
   .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s}
   .btn-primary:hover{background:var(--gold);color:#000}
   .btn-ghost{color:#aaa;text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
   .btn-ghost:hover{color:#fff}
 
+  /* SECTIONS */
   section{padding:110px 60px}
   .section-label{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:56px;display:flex;align-items:center;gap:18px}
   .section-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:70px}
   h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.1;margin-bottom:28px;color:#fff}
 
+  /* ABOUT */
   #about{background:var(--bg)}
   .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;max-width:1100px}
   .about-photo-wrap{position:relative}
   .about-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:brightness(0.92)}
+  .about-photo-placeholder{width:100%;aspect-ratio:3/4;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
   .about-text p{color:#aaa;margin-bottom:18px;font-size:.98rem;line-height:1.85}
   .facts{margin-top:36px;display:flex;flex-direction:column;gap:10px}
   .fact{display:flex;gap:16px;align-items:baseline}
   .fact-label{font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);min-width:90px}
   .fact-val{color:var(--muted);font-size:.88rem}
 
+  /* GALLERY STRIP */
   #gallery{background:var(--bg2);padding:0;overflow:hidden}
   .gallery-strip{display:flex;gap:3px}
-  .gallery-strip img{flex:1;min-width:0;height:320px;object-fit:cover;object-position:center center;filter:brightness(0.7) grayscale(0.2);transition:filter .4s,flex .4s}
+  .gallery-strip img,.gallery-strip .gph{flex:1;min-width:0;height:320px;object-fit:cover;filter:brightness(0.7) grayscale(0.2);transition:filter .4s,flex .4s}
   .gallery-strip img:hover{filter:brightness(0.9) grayscale(0);flex:1.6}
+  .gallery-strip .gph{background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--border);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
 
+  /* PROJECTS */
   #projects{background:var(--bg)}
   .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:1100px}
   .project-card{background:var(--bg);padding:48px 38px;transition:background .4s}
@@ -64,12 +71,14 @@
   .project-line{width:28px;height:1px;background:var(--gold);margin-top:28px;transition:width .4s}
   .project-card:hover .project-line{width:56px}
 
+  /* VIDEO */
   #video{background:var(--bg2)}
   .video-wrap{max-width:900px;aspect-ratio:16/9;background:#000;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;color:var(--muted)}
   .video-icon{width:58px;height:58px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center}
   .video-icon::after{content:'▶';color:var(--gold);font-size:.95rem;margin-left:4px}
   .video-note{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
 
+  /* SERVICES */
   #services{background:var(--bg)}
   .services-list{max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
   .service-item{background:var(--bg);padding:42px 38px}
@@ -77,22 +86,13 @@
   .service-item h3{font-size:1.05rem;font-weight:400;color:#fff;margin-bottom:10px}
   .service-item p{color:var(--muted);font-size:.88rem;line-height:1.75}
 
-  /* AWARDS */
-  #awards{background:var(--bg3)}
-  .awards-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);max-width:1100px;margin-top:0}
-  .award-card{background:var(--bg3);padding:40px 28px;text-align:center;transition:background .4s}
-  .award-card:hover{background:var(--bg2)}
-  .award-icon{font-size:2rem;margin-bottom:20px;display:block}
-  .award-year{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-  .award-name{font-size:.95rem;font-weight:400;color:#fff;line-height:1.3;margin-bottom:8px}
-  .award-detail{font-size:.75rem;color:var(--muted);line-height:1.5}
-  .award-country{display:inline-block;margin-top:14px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border);border:1px solid var(--border);padding:3px 10px}
-
+  /* PRESS */
   #press{background:var(--bg2)}
-  .press-quote{max-width:740px;border-left:1px solid var(--gold);padding-left:38px}
+  .press-quote{max-width:740px;border-left:1px solid var(--gold);padding-left:38px;margin-bottom:0}
   .press-quote blockquote{font-size:1.2rem;font-style:italic;color:#ccc;line-height:1.75;margin-bottom:14px}
   .press-source{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 
+  /* CONTACT */
   #contact{background:var(--bg3);text-align:center;padding:110px 60px}
   .contact-inner{max-width:620px;margin:0 auto}
   .contact-inner p{color:var(--muted);margin-bottom:44px;font-size:.98rem}
@@ -105,21 +105,21 @@
   .contact-social a{color:var(--muted);text-decoration:none;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s;padding-bottom:2px;border-bottom:1px solid transparent}
   .contact-social a:hover{color:var(--gold);border-color:var(--gold)}
 
+  /* FOOTER */
   footer{background:var(--bg);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
   footer p{color:var(--muted);font-size:.68rem;letter-spacing:.12em}
 
   @media(max-width:900px){
     nav{padding:18px 22px}
-    .nav-links{gap:16px}
-    .nav-links a{font-size:.6rem}
+    .nav-links{gap:20px}
+    .nav-links a{font-size:.65rem}
     section{padding:80px 22px}
     #hero{padding:0 22px 80px}
     .about-grid{grid-template-columns:1fr}
     .projects-grid{grid-template-columns:1fr}
     .services-list{grid-template-columns:1fr}
     .gallery-strip{flex-wrap:nowrap;overflow-x:auto}
-    .gallery-strip img{height:220px;min-width:200px}
-    .awards-cards{grid-template-columns:1fr 1fr}
+    .gallery-strip img,.gallery-strip .gph{height:220px;min-width:200px}
     footer{flex-direction:column;gap:10px;text-align:center;padding:22px}
   }
 </style>
@@ -133,11 +133,11 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#video">Listen</a></li>
     <li><a href="#services">Booking</a></li>
-    <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- HERO — использует photo5.jpg (сцена, луч света) -->
 <section id="hero">
   <img class="hero-img" src="photo7.jpg" alt="Anatoli Taran performing live"/>
   <div class="hero-overlay"></div>
@@ -145,7 +145,6 @@
     <div class="hero-subtitle">Warsaw · Europe</div>
     <h1 class="hero-name">Anatoli<br>Taran</h1>
     <div class="hero-instrument">Accordionist &amp; Composer</div>
-    <div class="hero-champion">World Accordion Champion · Trophée Mondial 2016</div>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">Book a Performance</a>
       <a href="#projects" class="btn-ghost">Explore Projects →</a>
@@ -153,6 +152,7 @@
   </div>
 </section>
 
+<!-- ABOUT — использует photo2.jpg (зал со стульями) -->
 <section id="about">
   <div class="section-label">About</div>
   <div class="about-grid">
@@ -176,6 +176,7 @@
   </div>
 </section>
 
+<!-- GALLERY STRIP -->
 <div id="gallery">
   <div class="gallery-strip">
     <img src="photo4.jpg" alt="Anatoli Taran performing"/>
@@ -185,6 +186,7 @@
   </div>
 </div>
 
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Projects</div>
   <h2>Musical Ensembles</h2>
@@ -211,16 +213,19 @@
   </div>
 </section>
 
+<!-- VIDEO -->
 <section id="video">
   <div class="section-label">Listen &amp; Watch</div>
   <h2>Live Performances</h2>
   <div style="height:44px"></div>
+  <!-- Замени эту заглушку на: <iframe width="900" height="506" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
   <div class="video-wrap">
     <div class="video-icon"></div>
     <div class="video-note">[ Вставь YouTube embed сюда ]</div>
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="section-label">Booking</div>
   <h2>What I Offer</h2>
@@ -249,56 +254,7 @@
   </div>
 </section>
 
-<!-- AWARDS -->
-<section id="awards">
-  <div class="section-label">Recognition</div>
-  <h2>Awards &amp; Honours</h2>
-  <div style="height:50px"></div>
-  <div class="awards-cards">
-
-    <div class="award-card">
-      <span class="award-icon">🏆</span>
-      <div class="award-year">2016</div>
-      <div class="award-name">Trophée Mondial de l'Accordéon</div>
-      <div class="award-detail">1st Prize · Senior Variety<br>World Accordion Champion</div>
-      <span class="award-country">Portugal</span>
-    </div>
-
-    <div class="award-card">
-      <span class="award-icon">🏆</span>
-      <div class="award-year">2017</div>
-      <div class="award-name">Trophée Mondial de l'Accordéon</div>
-      <div class="award-detail">1st Prize · Jazz category<br>Taran Trio</div>
-      <span class="award-country">France</span>
-    </div>
-
-    <div class="award-card">
-      <span class="award-icon">🥇</span>
-      <div class="award-year">2015</div>
-      <div class="award-name">PIF Castelfidardo</div>
-      <div class="award-detail">1st Prize · Variety category<br>International Accordion Prize</div>
-      <span class="award-country">Italy</span>
-    </div>
-
-    <div class="award-card">
-      <span class="award-icon">⚖️</span>
-      <div class="award-year">since 2016</div>
-      <div class="award-name">Juror · PIF Castelfidardo</div>
-      <div class="award-detail">International Accordion Prize<br>Jury member</div>
-      <span class="award-country">Italy</span>
-    </div>
-
-    <div class="award-card">
-      <span class="award-icon">🎹</span>
-      <div class="award-year">since 2016</div>
-      <div class="award-name">Victoria Accordions</div>
-      <div class="award-detail">Endorsed Artist<br>Official partnership</div>
-      <span class="award-country">Italy</span>
-    </div>
-
-  </div>
-</section>
-
+<!-- PRESS -->
 <section id="press">
   <div class="section-label">Press</div>
   <div class="press-quote">
@@ -307,13 +263,14 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
     <div class="section-label" style="justify-content:center">Contact</div>
     <h2>Let's Work Together</h2>
     <p>For bookings, collaborations, lessons and press inquiries — get in touch directly.</p>
     <div class="contact-details">
-      <a href="mailto:toliytaran@gmail.com" class="contact-email">toliytaran@gmail.com</a>
+      <a href="mailto:info@anatoltaran.com" class="contact-email">info@anatoltaran.com</a>
       <a href="tel:+48575832607" class="contact-phone">+48 575 832 607</a>
     </div>
     <div class="contact-social">
