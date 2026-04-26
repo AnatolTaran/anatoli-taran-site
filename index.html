@@ -3,163 +3,331 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Anatoli Taran — Accordionist</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  :root{--bg:#0a0a0a;--bg2:#111;--bg3:#161616;--gold:#c9a84c;--muted:#888;--border:#222}
-  body{background:#0d0d0d;font-family:'Georgia',serif;color:#e8e4dc;padding:40px 20px}
-  .variant-label{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-  .variant-desc{font-size:.8rem;color:var(--muted);margin-bottom:36px;font-style:italic}
-  .divider{height:1px;background:var(--border);margin:60px 0}
+  :root{
+    --bg:#0a0a0a;--bg2:#111;--bg3:#161616;
+    --gold:#c9a84c;--gold2:#e8c97a;
+    --text:#e8e4dc;--muted:#888;--border:#222;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.7}
 
-  /* === VARIANT 1: ICON CARDS === */
-  .v1-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);max-width:1000px}
-  .v1-card{background:var(--bg2);padding:36px 20px;text-align:center;transition:background .3s}
-  .v1-card:hover{background:var(--bg3)}
-  .v1-icon{font-size:1.8rem;margin-bottom:16px;display:block}
-  .v1-year{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-  .v1-name{font-size:.85rem;color:#fff;line-height:1.3;margin-bottom:6px}
-  .v1-sub{font-size:.72rem;color:var(--muted);line-height:1.4}
-  .v1-tag{display:inline-block;margin-top:12px;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:#444;border:1px solid #333;padding:2px 8px}
+  nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.97),transparent)}
+  .nav-logo{font-size:.95rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+  .nav-links a:hover{color:var(--gold)}
 
-  /* === VARIANT 2: TIMELINE === */
-  .v2-wrap{max-width:700px;position:relative;padding-left:32px}
-  .v2-wrap::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--border)}
-  .v2-item{position:relative;margin-bottom:32px}
-  .v2-item::before{content:'';position:absolute;left:-36px;top:8px;width:8px;height:8px;border:1px solid var(--gold);background:var(--bg);border-radius:50%}
-  .v2-item.highlight::before{background:var(--gold)}
-  .v2-year{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
-  .v2-name{font-size:1rem;color:#fff;font-weight:400;margin-bottom:4px}
-  .v2-sub{font-size:.78rem;color:var(--muted)}
+  #hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:0 60px 100px}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:brightness(0.99) contrast(1.1)}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 1%,transparent 100%),linear-gradient(to top,rgba(10,10,10,0.7) 20%,transparent 60%)}
+  .hero-content{position:relative;z-index:2}
+  .hero-subtitle{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .hero-name{font-size:clamp(3.5rem,7vw,7rem);font-weight:400;line-height:1;letter-spacing:-.02em;color:#fff;margin-bottom:8px}
+  .hero-instrument{font-size:clamp(1rem,2vw,1.35rem);color:#aaa;font-style:italic;letter-spacing:.1em;margin-bottom:16px}
+  .hero-champion{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:48px;opacity:.9}
+  .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s}
+  .btn-primary:hover{background:var(--gold);color:#000}
+  .btn-ghost{color:#aaa;text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+  .btn-ghost:hover{color:#fff}
 
-  /* === VARIANT 3: MINIMAL LIST === */
-  .v3-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);max-width:900px}
-  .v3-item{background:var(--bg2);padding:28px 32px;display:flex;gap:24px;align-items:baseline}
-  .v3-year{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);min-width:44px;flex-shrink:0}
-  .v3-right{}
-  .v3-name{font-size:.95rem;color:#fff;margin-bottom:3px;font-weight:400}
-  .v3-sub{font-size:.75rem;color:var(--muted)}
-  .v3-item.big{background:var(--bg3);border-left:2px solid var(--gold)}
-  .v3-item.big .v3-name{font-size:1.05rem}
+  section{padding:110px 60px}
+  .section-label{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:56px;display:flex;align-items:center;gap:18px}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:70px}
+  h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.1;margin-bottom:28px;color:#fff}
+
+  #about{background:var(--bg)}
+  .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start;max-width:1100px}
+  .about-photo-wrap{position:relative}
+  .about-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:brightness(0.92)}
+  .about-text p{color:#aaa;margin-bottom:18px;font-size:.98rem;line-height:1.85}
+  .facts{margin-top:36px;display:flex;flex-direction:column;gap:10px}
+  .fact{display:flex;gap:16px;align-items:baseline}
+  .fact-label{font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);min-width:90px}
+  .fact-val{color:var(--muted);font-size:.88rem}
+
+  #gallery{background:var(--bg2);padding:0;overflow:hidden}
+  .gallery-strip{display:flex;gap:3px}
+  .gallery-strip img{flex:1;min-width:0;height:320px;object-fit:cover;object-position:center center;filter:brightness(0.7) grayscale(0.2);transition:filter .4s,flex .4s}
+  .gallery-strip img:hover{filter:brightness(0.9) grayscale(0);flex:1.6}
+
+  #projects{background:var(--bg)}
+  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:1100px}
+  .project-card{background:var(--bg);padding:48px 38px;transition:background .4s}
+  .project-card:hover{background:var(--bg3)}
+  .project-num{font-size:.63rem;letter-spacing:.3em;color:var(--gold);margin-bottom:28px;opacity:.6}
+  .project-card h3{font-size:1.35rem;font-weight:400;color:#fff;margin-bottom:14px;line-height:1.2}
+  .project-card p{color:var(--muted);font-size:.88rem;line-height:1.75}
+  .project-line{width:28px;height:1px;background:var(--gold);margin-top:28px;transition:width .4s}
+  .project-card:hover .project-line{width:56px}
+
+  #video{background:var(--bg2)}
+  .video-wrap{max-width:900px;aspect-ratio:16/9;background:#000;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;color:var(--muted)}
+  .video-icon{width:58px;height:58px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .video-icon::after{content:'▶';color:var(--gold);font-size:.95rem;margin-left:4px}
+  .video-note{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+
+  #services{background:var(--bg)}
+  .services-list{max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+  .service-item{background:var(--bg);padding:42px 38px}
+  .service-icon{font-size:1.3rem;margin-bottom:18px;color:var(--gold)}
+  .service-item h3{font-size:1.05rem;font-weight:400;color:#fff;margin-bottom:10px}
+  .service-item p{color:var(--muted);font-size:.88rem;line-height:1.75}
+
+  /* AWARDS */
+  #awards{background:var(--bg3)}
+  .awards-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);max-width:1100px;margin-top:0}
+  .award-card{background:var(--bg3);padding:40px 28px;text-align:center;transition:background .4s}
+  .award-card:hover{background:var(--bg2)}
+  .award-icon{font-size:2rem;margin-bottom:20px;display:block}
+  .award-year{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .award-name{font-size:.95rem;font-weight:400;color:#fff;line-height:1.3;margin-bottom:8px}
+  .award-detail{font-size:.75rem;color:var(--muted);line-height:1.5}
+  .award-country{display:inline-block;margin-top:14px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border);border:1px solid var(--border);padding:3px 10px}
+
+  #press{background:var(--bg2)}
+  .press-quote{max-width:740px;border-left:1px solid var(--gold);padding-left:38px}
+  .press-quote blockquote{font-size:1.2rem;font-style:italic;color:#ccc;line-height:1.75;margin-bottom:14px}
+  .press-source{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+  #contact{background:var(--bg3);text-align:center;padding:110px 60px}
+  .contact-inner{max-width:620px;margin:0 auto}
+  .contact-inner p{color:var(--muted);margin-bottom:44px;font-size:.98rem}
+  .contact-details{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:48px}
+  .contact-email{font-size:1.15rem;color:var(--gold);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
+  .contact-email:hover{border-color:var(--gold)}
+  .contact-phone{font-size:1rem;color:#aaa;text-decoration:none;letter-spacing:.05em}
+  .contact-phone:hover{color:var(--gold)}
+  .contact-social{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+  .contact-social a{color:var(--muted);text-decoration:none;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s;padding-bottom:2px;border-bottom:1px solid transparent}
+  .contact-social a:hover{color:var(--gold);border-color:var(--gold)}
+
+  footer{background:var(--bg);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+  footer p{color:var(--muted);font-size:.68rem;letter-spacing:.12em}
+
+  @media(max-width:900px){
+    nav{padding:18px 22px}
+    .nav-links{gap:16px}
+    .nav-links a{font-size:.6rem}
+    section{padding:80px 22px}
+    #hero{padding:0 22px 80px}
+    .about-grid{grid-template-columns:1fr}
+    .projects-grid{grid-template-columns:1fr}
+    .services-list{grid-template-columns:1fr}
+    .gallery-strip{flex-wrap:nowrap;overflow-x:auto}
+    .gallery-strip img{height:220px;min-width:200px}
+    .awards-cards{grid-template-columns:1fr 1fr}
+    footer{flex-direction:column;gap:10px;text-align:center;padding:22px}
+  }
 </style>
 </head>
 <body>
 
-<!-- VARIANT 1 -->
-<div class="variant-label">Вариант 1 — Иконки</div>
-<div class="variant-desc">Карточки с эмодзи-иконками, год, название, страна. Компактно, современно.</div>
-<div class="v1-grid">
-  <div class="v1-card">
-    <span class="v1-icon">🏆</span>
-    <div class="v1-year">2016</div>
-    <div class="v1-name">Trophée Mondial de l'Accordéon</div>
-    <div class="v1-sub">1st Prize · Solo<br>World Champion</div>
-    <span class="v1-tag">Portugal</span>
+<nav>
+  <div class="nav-logo">Anatoli Taran</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#video">Listen</a></li>
+    <li><a href="#services">Booking</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <img class="hero-img" src="photo7.jpg" alt="Anatoli Taran performing live"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-subtitle">Warsaw · Europe</div>
+    <h1 class="hero-name">Anatoli<br>Taran</h1>
+    <div class="hero-instrument">Accordionist &amp; Composer</div>
+    <div class="hero-champion">World Accordion Champion · Trophée Mondial 2016</div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Book a Performance</a>
+      <a href="#projects" class="btn-ghost">Explore Projects →</a>
+    </div>
   </div>
-  <div class="v1-card">
-    <span class="v1-icon">🏆</span>
-    <div class="v1-year">2017</div>
-    <div class="v1-name">Trophée Mondial de l'Accordéon</div>
-    <div class="v1-sub">1st Prize · Jazz<br>Taran Trio</div>
-    <span class="v1-tag">France</span>
+</section>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <img class="about-photo" src="photo8.jpg" alt="Anatoli Taran"/>
+    </div>
+    <div>
+      <h2>One of Eastern Europe's leading accordionists</h2>
+      <div class="about-text">
+        <p>Anatoli Taran is a Belarusian accordionist based in Warsaw, widely recognized for his technically exceptional playing and innovative approach to the instrument. His distinctive sound bridges jazz, tango, and contemporary music — pushing the accordion far beyond its traditional boundaries.</p>
+        <p>A fixture on the European concert circuit, Taran has performed in sold-out venues across Belarus, Lithuania, France, Switzerland and beyond. He is a juror at the International Accordion Prize of Castelfidardo (Italy) and an endorsed artist of Victoria Accordions.</p>
+        <p>Today based in Warsaw, he performs regularly at the city's most atmospheric venues while continuing to develop his ensemble projects for European audiences.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span class="fact-label">Based in</span><span class="fact-val">Warsaw, Poland</span></div>
+        <div class="fact"><span class="fact-label">Origin</span><span class="fact-val">Belarus</span></div>
+        <div class="fact"><span class="fact-label">Genre</span><span class="fact-val">Jazz · Tango · Contemporary</span></div>
+        <div class="fact"><span class="fact-label">Instrument</span><span class="fact-val">Victoria Accordion</span></div>
+      </div>
+    </div>
   </div>
-  <div class="v1-card">
-    <span class="v1-icon">🥇</span>
-    <div class="v1-year">2015</div>
-    <div class="v1-name">PIF Castelfidardo</div>
-    <div class="v1-sub">1st Prize<br>Variety category</div>
-    <span class="v1-tag">Italy</span>
-  </div>
-  <div class="v1-card">
-    <span class="v1-icon">⚖️</span>
-    <div class="v1-year">since 2016</div>
-    <div class="v1-name">Juror · PIF Castelfidardo</div>
-    <div class="v1-sub">International<br>Accordion Prize</div>
-    <span class="v1-tag">Italy</span>
-  </div>
-  <div class="v1-card">
-    <span class="v1-icon">🎹</span>
-    <div class="v1-year">since 2016</div>
-    <div class="v1-name">Victoria Accordions</div>
-    <div class="v1-sub">Endorsed<br>Artist</div>
-    <span class="v1-tag">Italy</span>
+</section>
+
+<div id="gallery">
+  <div class="gallery-strip">
+    <img src="photo4.jpg" alt="Anatoli Taran performing"/>
+    <img src="photo5.jpg" alt="Anatoli Taran live"/>
+    <img src="photo3.jpg" alt="Anatoli Taran"/>
+    <img src="photo2.jpg" alt="Anatoli Taran portrait"/>
   </div>
 </div>
 
-<div class="divider"></div>
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2>Musical Ensembles</h2>
+  <div style="height:44px"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <h3>Taran Trio</h3>
+      <p>A jazz formation celebrated for its inventive sound — spanning traditional folk, modern jazz and avant-garde. Toured France, Switzerland, Lithuania and across Eastern Europe.</p>
+      <div class="project-line"></div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <h3>Taran Quartet</h3>
+      <p>An expanded ensemble drawing on diverse genres and cultural influences, crafting compositions that blur the boundaries between jazz, folk and contemporary music.</p>
+      <div class="project-line"></div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <h3>Taran Tango Project</h3>
+      <p>A dedicated tango project exploring the full emotional range of the genre — from classic Buenos Aires tango to nuevo tango. Performed at Warsaw's finest tango venues.</p>
+      <div class="project-line"></div>
+    </div>
+  </div>
+</section>
 
-<!-- VARIANT 2 -->
-<div class="variant-label">Вариант 2 — Timeline</div>
-<div class="variant-desc">Хронология с вертикальной линией. Передаёт развитие карьеры во времени.</div>
-<div class="v2-wrap">
-  <div class="v2-item highlight">
-    <div class="v2-year">2016 · Portimão, Portugal</div>
-    <div class="v2-name">Trophée Mondial de l'Accordéon — 1st Prize</div>
-    <div class="v2-sub">World Accordion Champion · Senior Variety</div>
+<section id="video">
+  <div class="section-label">Listen &amp; Watch</div>
+  <h2>Live Performances</h2>
+  <div style="height:44px"></div>
+  <div class="video-wrap">
+    <div class="video-icon"></div>
+    <div class="video-note">[ Вставь YouTube embed сюда ]</div>
   </div>
-  <div class="v2-item highlight">
-    <div class="v2-year">2017 · Onet-le-Château, France</div>
-    <div class="v2-name">Trophée Mondial de l'Accordéon — 1st Prize</div>
-    <div class="v2-sub">Taran Trio · Jazz category</div>
-  </div>
-  <div class="v2-item">
-    <div class="v2-year">2015 · Castelfidardo, Italy</div>
-    <div class="v2-name">PIF International Accordion Prize — 1st Prize</div>
-    <div class="v2-sub">Variety category</div>
-  </div>
-  <div class="v2-item">
-    <div class="v2-year">since 2016 · Italy</div>
-    <div class="v2-name">Juror · PIF Castelfidardo</div>
-    <div class="v2-sub">International Accordion Prize</div>
-  </div>
-  <div class="v2-item">
-    <div class="v2-year">since 2016</div>
-    <div class="v2-name">Victoria Accordions — Endorsed Artist</div>
-    <div class="v2-sub">Official partnership</div>
-  </div>
-</div>
+</section>
 
-<div class="divider"></div>
+<section id="services">
+  <div class="section-label">Booking</div>
+  <h2>What I Offer</h2>
+  <div style="height:44px"></div>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-icon">◈</div>
+      <h3>Concerts &amp; Tours</h3>
+      <p>Solo and ensemble performances for festivals, concert halls and cultural events across Europe. Available for full tours and individual bookings.</p>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">◈</div>
+      <h3>Live at Your Venue</h3>
+      <p>Intimate live music for restaurants, clubs and private events. Currently performing at Vivo Tango and Garden by Forts in Warsaw. Available for residencies across Europe.</p>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">◈</div>
+      <h3>Masterclasses &amp; Lessons</h3>
+      <p>Individual and group lessons for accordion students of all levels, drawing on years of international performance experience in jazz and tango repertoire.</p>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">◈</div>
+      <h3>Collaborations</h3>
+      <p>Open to artistic collaborations with musicians, ensembles and composers. Previous collaborations span jazz, tango and cross-genre contemporary projects.</p>
+    </div>
+  </div>
+</section>
 
-<!-- VARIANT 3 -->
-<div class="variant-label">Вариант 3 — Минимализм</div>
-<div class="variant-desc">Два столбца, год + название. Без иконок. Элегантно, как в классическом press kit.</div>
-<div class="v3-grid">
-  <div class="v3-item big">
-    <div class="v3-year">2016</div>
-    <div class="v3-right">
-      <div class="v3-name">Trophée Mondial de l'Accordéon</div>
-      <div class="v3-sub">1st Prize · World Champion · Portugal</div>
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-label">Recognition</div>
+  <h2>Awards &amp; Honours</h2>
+  <div style="height:50px"></div>
+  <div class="awards-cards">
+
+    <div class="award-card">
+      <span class="award-icon">🏆</span>
+      <div class="award-year">2016</div>
+      <div class="award-name">Trophée Mondial de l'Accordéon</div>
+      <div class="award-detail">1st Prize · Senior Variety<br>World Accordion Champion</div>
+      <span class="award-country">Portugal</span>
+    </div>
+
+    <div class="award-card">
+      <span class="award-icon">🏆</span>
+      <div class="award-year">2017</div>
+      <div class="award-name">Trophée Mondial de l'Accordéon</div>
+      <div class="award-detail">1st Prize · Jazz category<br>Taran Trio</div>
+      <span class="award-country">France</span>
+    </div>
+
+    <div class="award-card">
+      <span class="award-icon">🥇</span>
+      <div class="award-year">2015</div>
+      <div class="award-name">PIF Castelfidardo</div>
+      <div class="award-detail">1st Prize · Variety category<br>International Accordion Prize</div>
+      <span class="award-country">Italy</span>
+    </div>
+
+    <div class="award-card">
+      <span class="award-icon">⚖️</span>
+      <div class="award-year">since 2016</div>
+      <div class="award-name">Juror · PIF Castelfidardo</div>
+      <div class="award-detail">International Accordion Prize<br>Jury member</div>
+      <span class="award-country">Italy</span>
+    </div>
+
+    <div class="award-card">
+      <span class="award-icon">🎹</span>
+      <div class="award-year">since 2016</div>
+      <div class="award-name">Victoria Accordions</div>
+      <div class="award-detail">Endorsed Artist<br>Official partnership</div>
+      <span class="award-country">Italy</span>
+    </div>
+
+  </div>
+</section>
+
+<section id="press">
+  <div class="section-label">Press</div>
+  <div class="press-quote">
+    <blockquote>"So refreshing and dashing that unbeknownst to the listener, the sound drifts them away from the gloominess of daily life."</blockquote>
+    <div class="press-source">— Lithuanian Music Press</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center">Contact</div>
+    <h2>Let's Work Together</h2>
+    <p>For bookings, collaborations, lessons and press inquiries — get in touch directly.</p>
+    <div class="contact-details">
+      <a href="mailto:toliytaran@gmail.com" class="contact-email">toliytaran@gmail.com</a>
+      <a href="tel:+48575832607" class="contact-phone">+48 575 832 607</a>
+    </div>
+    <div class="contact-social">
+      <a href="https://www.facebook.com/anatoli.taran" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/anatol.taran" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@anatoltaran" target="_blank" rel="noopener">YouTube</a>
     </div>
   </div>
-  <div class="v3-item big">
-    <div class="v3-year">2017</div>
-    <div class="v3-right">
-      <div class="v3-name">Trophée Mondial de l'Accordéon</div>
-      <div class="v3-sub">1st Prize · Taran Trio · France</div>
-    </div>
-  </div>
-  <div class="v3-item">
-    <div class="v3-year">2015</div>
-    <div class="v3-right">
-      <div class="v3-name">PIF Castelfidardo</div>
-      <div class="v3-sub">1st Prize · Variety · Italy</div>
-    </div>
-  </div>
-  <div class="v3-item">
-    <div class="v3-year">2016–</div>
-    <div class="v3-right">
-      <div class="v3-name">Juror · PIF Castelfidardo</div>
-      <div class="v3-sub">International Accordion Prize · Italy</div>
-    </div>
-  </div>
-  <div class="v3-item">
-    <div class="v3-year">2016–</div>
-    <div class="v3-right">
-      <div class="v3-name">Victoria Accordions</div>
-      <div class="v3-sub">Endorsed Artist · Italy</div>
-    </div>
-  </div>
-</div>
+</section>
+
+<footer>
+  <p>© 2025 Anatoli Taran. All rights reserved.</p>
+  <p>Warsaw, Poland</p>
+</footer>
 
 </body>
 </html>
