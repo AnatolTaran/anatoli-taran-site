@@ -18,7 +18,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;width:100%;z-index:100;padding:25px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.85);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,0.03)}
-  .nav-logo{font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+  .nav-logo img{height:48px;width:auto;display:block}
   .nav-links{display:flex;gap:40px;list-style:none}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:var(--transition)}
   .nav-links a:hover{color:var(--gold)}
@@ -111,7 +111,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">Anatoli Taran</a>
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Anatoli Taran"></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -171,22 +171,24 @@
     <div class="projects-grid">
 
       <div class="project-card">
-        <img src="photo15.jpg" class="project-img" alt="Taran Trio"
+        <!-- Замени project-trio.jpg на своё фото проекта -->
+        <img src="project-trio.jpg" class="project-img" alt="Taran Trio"
           onerror="this.style.background='#161616';this.style.minHeight='300px'"/>
         <div class="project-info">
           <div class="project-num">01</div>
-          <h3>Taran Quartet</h3>
+          <h3>Taran Trio</h3>
           <p>A jazz formation celebrated for its inventive sound — spanning modern jazz and avant-garde. Winners of the 67th Trophée Mondial de l'Accordéon, France 2017.</p>
           <div class="project-line"></div>
         </div>
       </div>
 
       <div class="project-card">
-        <img src="photo16.jpg" class="project-img" alt="Taran Tango Project"
+        <!-- Замени project-tango.jpg на своё фото проекта -->
+        <img src="project-tango.jpg" class="project-img" alt="Taran Tango Project"
           onerror="this.style.background='#161616';this.style.minHeight='300px'"/>
         <div class="project-info">
           <div class="project-num">02</div>
-          <h3>Tango d'Amore Project</h3>
+          <h3>Taran Tango Project</h3>
           <p>A dedicated tango project exploring the full emotional range of the genre — from classic Buenos Aires tango to nuevo tango. Performing at Warsaw's finest venues.</p>
           <div class="project-line"></div>
         </div>
@@ -254,7 +256,10 @@
   </div>
 </section>
 
-<footer>© 2026 ANATOLI TARAN · WARSAW, POLAND</footer>
+<footer style="padding:60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)">
+  <img src="logo.png" alt="Anatoli Taran" style="height:40px;width:auto;margin-bottom:20px;opacity:0.7;display:block;margin-left:auto;margin-right:auto">
+  © 2026 ANATOLI TARAN · WARSAW, POLAND
+</footer>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
