@@ -34,7 +34,7 @@
   .hero-name{font-size:clamp(3.5rem,7vw,7rem);font-weight:400;line-height:1;letter-spacing:-.02em;color:#fff;margin-bottom:8px}
   .hero-instrument{font-size:clamp(1rem,2vw,1.35rem);color:#aaa;font-style:italic;letter-spacing:.1em;margin-bottom:48px}
   .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent}
+  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Georgia',serif}
   .btn-primary:hover{background:var(--gold);color:#000}
 
   /* ABOUT */
@@ -176,7 +176,7 @@
     <div class="hero-name">Anatoli<br>Taran</div>
     <div class="hero-instrument">Accordionist · Composer</div>
     <div class="hero-cta">
-      <button onclick="openModal()" class="btn-primary" style="cursor:pointer;font-family:'Georgia',serif">Contact Me</button>
+      <button onclick="openModal()" class="btn-primary">Contact Me</button>
     </div>
   </div>
 </section>
@@ -314,7 +314,7 @@
     <span class="modal-label">Inquiries</span>
     <div class="modal-title">Contact Me</div>
 
-    <form id="bookingForm" action="https://formspree.io/f/maqkqgoe" method="POST" onsubmit="handleSubmit(event)">
+    <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
 
       <div class="form-group">
         <label for="subject">Subject</label>
@@ -364,6 +364,17 @@
 <script>
   // Modal
   function openModal(){
+    // Reset to initial state
+    const form=document.getElementById('bookingForm');
+    const success=document.getElementById('formSuccess');
+    const btn=document.getElementById('submitBtn');
+    form.reset();
+    form.style.display='';
+    success.style.display='none';
+    btn.disabled=false;
+    btn.textContent='Send';
+    document.getElementById('otherSubjectWrap').classList.remove('visible');
+    document.getElementById('otherSubjectInput').required=false;
     document.getElementById('bookingModal').classList.add('open');
     document.body.style.overflow='hidden';
   }
@@ -416,7 +427,7 @@
       }
     } catch(err){
       btn.disabled=false;
-      btn.textContent='Send';
+      btn.textContent='Send Inquiry';
       alert('Connection error. Please email info@anatoltaran.com directly.');
     }
   }
