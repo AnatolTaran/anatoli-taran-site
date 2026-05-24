@@ -4,28 +4,6 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Anatoli Taran — Accordionist & Composer</title>
-<!-- SEO -->
-<meta name="description" content="Anatoli Taran (Anatoliy Taran, Anatoly Taran, Anatol Taran, Анатолий Таран) — Belarusian accordionist and composer based in Warsaw. Jazz, tango, contemporary music. Two-time winner of Trophée Mondial de l'Accordéon.">
-<meta name="keywords" content="Anatoli Taran, Anatoliy Taran, Anatoly Taran, Anatol Taran, Tolik Taran, Toliy Taran, Анатолий Таран, Анатол Таран, Толя Таран, Толик Таран, accordionist Warsaw, accordion composer, jazz accordion">
-
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Anatoli Taran",
-  "alternateName": ["Anatoliy Taran","Anatoly Taran","Anatol Taran","Tolik Taran","Toliy Taran","Анатолий Таран","Анатол Таран","Толя Таран","Толик Таран"],
-  "url": "https://anatolitaran.com",
-  "jobTitle": "Accordionist & Composer",
-  "birthPlace": "Slutsk, Belarus",
-  "worksFor": {"@type":"Organization","name":"Victoria Accordions"},
-  "sameAs": [
-    "https://www.instagram.com/anatol.taran",
-    "https://www.facebook.com/anatoli.taran",
-    "https://www.youtube.com/@anatoltaran"
-  ]
-}
-</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="icon" type="image/png" href="logo.png"/>
 <link rel="apple-touch-icon" href="logo.png"/>
@@ -154,12 +132,26 @@
   .form-success p{color:var(--muted);font-size:.9rem;line-height:1.7}
   @media(max-width:600px){.modal-box{padding:36px 24px}.form-row{grid-template-columns:1fr}}
 
+  /* BURGER MENU */
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:200;background:none;border:none}
+  .burger span{display:block;width:24px;height:2px;background:#fff;transition:var(--transition)}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.6rem;letter-spacing:.1em;text-transform:uppercase;transition:.3s}
+  .mobile-menu a:hover{color:var(--gold)}
+
   @media(max-width:1000px){
-    nav{padding:20px}
+    nav{padding:16px 24px}
     .nav-links{display:none}
-    #hero{padding:0 30px 80px;align-items:center;text-align:center}
+    .burger{display:flex}
+    #hero{padding:0 24px 80px;align-items:center;text-align:center}
     .hero-img{object-position:center center}
     .hero-overlay{background:rgba(0,0,0,0.6)}
+    .hero-cta{justify-content:center}
     #about{padding:80px 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo-wrap::after{display:none}
@@ -175,6 +167,22 @@
     .story-item:nth-child(even){direction:ltr}
     .gallery-row{grid-template-columns:1fr 1fr}
     #contact{padding:80px 24px}
+    footer{padding:40px 24px}
+  }
+
+  @media(max-width:480px){
+    #hero{padding:0 20px 60px}
+    .hero-name{font-size:clamp(2.8rem,14vw,4rem)}
+    .hero-instrument{font-size:.9rem}
+    .about-text h2{font-size:1.7rem}
+    .gallery-row{grid-template-columns:1fr 1fr}
+    .project-info{padding:20px 16px 24px}
+    .project-info h3{font-size:1.2rem}
+    .story-text h3{font-size:1.3rem}
+    .contact-link{font-size:1.1rem}
+    .social-icons{gap:28px}
+    .social-icons a{font-size:1.7rem}
+    .modal-box{padding:32px 20px}
   }
 </style>
 </head>
@@ -188,7 +196,19 @@
     <li><a href="#video">Performances</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#video" onclick="closeMenu()">Performances</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <button onclick="closeMenu();openModal()" class="btn-primary" style="margin-top:20px">Contact Me</button>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -385,6 +405,20 @@
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
+  // Burger menu
+  function toggleMenu(){
+    const burger=document.getElementById('burger');
+    const menu=document.getElementById('mobileMenu');
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+  }
+  function closeMenu(){
+    document.getElementById('burger').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow='';
+  }
+
   // Modal
   function openModal(){
     // Reset to initial state
