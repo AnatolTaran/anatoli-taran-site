@@ -26,7 +26,7 @@
   .nav-logo{text-decoration:none;display:flex;align-items:center;height:80px}
   .nav-logo img{height:50px;width:auto;display:block}
   .nav-links{display:flex;gap:40px;list-style:none}
-  .nav-links a{color:#ffffff;text-decoration:none;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;transition:var(--transition);font-weight:400;font-family:'Oswald',sans-serif}
+  .nav-links a{color:#ffffff;text-decoration:none;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;transition:var(--transition);font-weight:400;font-family:'Alumni Sans',sans-serif;letter-spacing:.15em}
   .nav-links a:hover{color:var(--gold)}
 
   /* HERO */
@@ -35,8 +35,8 @@
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.75) 20%,transparent 100%)}
   .hero-content{position:relative;z-index:2}
   .hero-subtitle{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-  .hero-name{font-size:60px;font-weight:400;line-height:1;letter-spacing:.05em;color:#fff;margin-bottom:8px;font-family:'Oswald',sans-serif;text-transform:uppercase}
-  .hero-instrument{font-size:clamp(1rem,2vw,1.35rem);color:#aaa;font-style:italic;letter-spacing:.1em;margin-bottom:48px}
+  .hero-name{font-size:42px;font-weight:400;line-height:1.05;letter-spacing:.12em;color:var(--gold);margin-bottom:20px;font-family:'Oswald',sans-serif;text-transform:uppercase}
+  .hero-instrument{font-size:.85rem;color:#fff;font-style:normal;letter-spacing:.35em;margin-bottom:48px;font-family:'Alumni Sans',sans-serif;text-transform:uppercase;font-weight:300}
   .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
   .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Oswald',sans-serif}
   .btn-primary:hover{background:var(--gold);color:#000}
@@ -48,10 +48,10 @@
   .about-photo-wrap{position:relative}
   .about-photo-wrap::after{content:'';position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);z-index:0}
   .about-photo{width:100%;position:relative;z-index:1;filter:grayscale(0.2)}
-  .about-text h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:35px;color:#fff;font-family:'Oswald',sans-serif;font-weight:400;letter-spacing:.03em}
+  .about-text h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:35px;color:#fff;font-family:'Oswald',sans-serif;font-weight:400;letter-spacing:.08em;color:var(--gold)}
   .about-text p{font-size:1.05rem;color:#aaa;margin-bottom:22px}
   .about-accent{color:var(--gold);font-size:1.1rem;font-style:italic;margin:35px 0;padding-left:25px;border-left:2px solid var(--gold);line-height:1.5}
-  .section-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .section-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-family:'Alumni Sans',sans-serif;font-weight:300}
 
   /* GALLERY */
   .gallery-row{display:grid;grid-template-columns:repeat(4,1fr);background:#000}
@@ -144,7 +144,7 @@
 
   .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:40px}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.6rem;letter-spacing:.1em;text-transform:uppercase;transition:.3s}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.6rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s;font-family:'Oswald',sans-serif;font-weight:400}
   .mobile-menu a:hover{color:var(--gold)}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
 
@@ -154,7 +154,7 @@
     .nav-links{display:none}
     .burger{display:flex}
     #hero{padding:0 24px 80px;align-items:center;text-align:center}
-    .hero-img{object-position:86% center}
+    .hero-img{object-position:30% center}
     .hero-overlay{background:rgba(0,0,0,0.6)}
     .hero-cta{justify-content:center}
     #about{padding:80px 24px}
@@ -194,7 +194,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-decoration:none;white-space:nowrap">Anatoli Taran</a>
+  <a href="#" class="nav-logo" style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
