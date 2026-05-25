@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700family=Alumni+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Raleway:wght@300;400;500family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Alumni+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Raleway:wght@300;400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="logo.png"/>
 <link rel="apple-touch-icon" href="logo.png"/>
 <style>
@@ -30,15 +30,15 @@
   .nav-links a:hover{color:var(--gold)}
 
   /* HERO */
-  #hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:0 60px 30vh}
-  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position: 80% 1%;filter:brightness(1.1)}
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.75) 20%,transparent 100%)}
-  .hero-content{position:relative;z-index:2}
+  #hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:0 0 0 7%}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 1%;filter:brightness(1.1)}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.72) 30%,rgba(10,10,10,0.1) 70%,transparent 100%)}
+  .hero-content{position:relative;z-index:2;text-align:left;max-width:600px;margin-top:5vh}
   .hero-subtitle{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-  .hero-name{font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:.04em;color:#fff;margin-bottom:12px;font-family:'Oswald',sans-serif;text-transform:none}
-  .hero-instrument{font-size:1rem;color:#ccc;font-style:italic;letter-spacing:.15em;margin-bottom:48px;font-family:'Alumni Sans',sans-serif;text-transform:none;font-weight:300}
+  .hero-name{font-size:clamp(2.6rem,5.2vw,4.8rem);font-weight:400;line-height:1.1;letter-spacing:.16em;color:#fff;margin-bottom:14px;font-family:'Syncopate',sans-serif;text-transform:uppercase;white-space:nowrap}
+  .hero-instrument{font-size:.6rem;color:var(--gold);font-style:normal;letter-spacing:.42em;margin-bottom:48px;font-family:'Syncopate',sans-serif;text-transform:uppercase;font-weight:400}
   .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Oswald',sans-serif}
+  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Syncopate',sans-serif}
   .btn-primary:hover{background:var(--gold);color:#000}
 
   /* ABOUT */
@@ -154,7 +154,7 @@
     .nav-links{display:none}
     .burger{display:flex}
     #hero{padding:0 24px;align-items:center;text-align:center}
-    .hero-img{object-position:88% center}
+    .hero-img{object-position:30% center}
     .hero-overlay{background:rgba(0,0,0,0.6)}
     .hero-cta{justify-content:center}
     #about{padding:80px 24px}
@@ -220,6 +220,14 @@
 <section id="hero">
   <img class="hero-img" src="photo22.jpg" alt="Anatoli Taran">
   <div class="hero-overlay"></div>
+  <div class="hero-content">
+
+    <div class="hero-name">Anatoli Taran</div>
+    <div class="hero-instrument">Accordionist · Composer</div>
+    <div class="hero-cta">
+      <button onclick="openModal()" class="btn-primary">Contact Me</button>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
