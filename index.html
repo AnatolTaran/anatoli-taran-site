@@ -26,7 +26,7 @@
   .nav-logo{text-decoration:none;display:flex;align-items:center;height:80px}
   .nav-logo img{height:50px;width:auto;display:block}
   .nav-links{display:flex;gap:40px;list-style:none}
-  .nav-links a{color:#ffffff;text-decoration:none;font-size:.85rem;letter-spacing:.10em;text-transform:uppercase;transition:var(--transition);font-weight:400;font-family:'Syncopate',sans-serif}
+  .nav-links a{color:#ffffff;text-decoration:none;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:var(--transition);font-weight:500;font-family:'Jost',sans-serif}
   .nav-links a:hover{color:var(--gold)}
 
   /* HERO */
@@ -35,10 +35,10 @@
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.80) 20%,rgba(10,10,10,0.72) 35%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.30) 65%,rgba(10,10,10,0.12) 80%,rgba(10,10,10,0.03) 92%,transparent 100%)}
   .hero-content{position:relative;z-index:2;text-align:left;max-width:700px;margin-top:2vh}
   .hero-subtitle{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-  .hero-name{font-size:clamp(4rem, 3.7vw, 3.7rem);font-weight:500;line-height:1.05;letter-spacing: .10em;color:#fff;margin-bottom:20px;font-family:'Syncopate',sans-serif;text-transform:uppercase;white-space:nowrap}
-  .hero-instrument{font-size:1.1rem;color:var(--gold);font-style:normal;letter-spacing:.28em;margin-bottom:50px;font-family:'Syncopate',sans-serif;text-transform:uppercase;font-weight:500}
+  .hero-name{font-size:clamp(4rem, 3.7vw, 3.7rem);font-weight:500;line-height:1.05;letter-spacing:.10em;color:#fff;margin-bottom:20px;font-family:'Syncopate',sans-serif;text-transform:uppercase;white-space:nowrap}
+  .hero-instrument{font-size:1.1rem;color:var(--gold);font-style:normal;letter-spacing:.28em;margin-bottom:50px;font-family:'Syncopate',sans-serif;text-transform:uppercase;font-weight:400}
   .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Syncopate',sans-serif}
+  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500}
   .btn-primary:hover{background:var(--gold);color:#000}
 
   /* ABOUT */
@@ -51,7 +51,7 @@
   .about-text h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:35px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.04em;color:var(--gold)}
   .about-text p{font-size:1.05rem;color:#aaa;margin-bottom:22px}
   .about-accent{color:var(--gold);font-size:1.1rem;font-style:italic;margin:35px 0;padding-left:25px;border-left:2px solid var(--gold);line-height:1.5}
-  .section-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-family:'Raleway',sans-serif;font-weight:400}
+  .section-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-family:'Jost',sans-serif;font-weight:400}
 
   /* GALLERY */
   .gallery-row{display:grid;grid-template-columns:repeat(4,1fr);background:#000}
@@ -127,7 +127,7 @@
   .other-subject-wrap input:focus{border-bottom-color:var(--gold)}
   .form-group textarea{resize:none;height:90px;line-height:1.6}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .btn-submit{margin-top:36px;width:100%;padding:15px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Syncopate',sans-serif;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+  .btn-submit{margin-top:36px;width:100%;padding:15px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .3s}
   .btn-submit:hover{background:var(--gold);color:#000}
   .btn-submit:disabled{opacity:.5;cursor:not-allowed}
   .form-success{text-align:center;padding:40px 0;display:none}
@@ -144,7 +144,7 @@
 
   .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:40px}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;transition:.3s;font-family:'Syncopate',sans-serif;font-weight:400}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;transition:.3s;font-family:'Jost',sans-serif;font-weight:500}
   .mobile-menu a:hover{color:var(--gold)}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
 
@@ -194,7 +194,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" style="font-family:'Syncopate',sans-serif;font-size:1rem;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
+  <a href="#" class="nav-logo" style="font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
