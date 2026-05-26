@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Alumni+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Raleway:wght@300;400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="logo.png"/>
 <link rel="apple-touch-icon" href="logo.png"/>
 <style>
@@ -19,14 +19,14 @@
     --transition:all 0.6s cubic-bezier(0.16,1,0.3,1);
   }
   html{scroll-behavior:smooth;scroll-padding-top:80px}
-  body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
 
   /* NAV */
   nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,transparent 100%);border-bottom:none}
   .nav-logo{text-decoration:none;display:flex;align-items:center;height:80px}
   .nav-logo img{height:50px;width:auto;display:block}
   .nav-links{display:flex;gap:40px;list-style:none}
-  .nav-links a{color:#ffffff;text-decoration:none;font-size:1.15rem;letter-spacing:.1em;text-transform:uppercase;transition:var(--transition);font-weight:400;font-family:'Alumni Sans',sans-serif;letter-spacing:.18em}
+  .nav-links a{color:#ffffff;text-decoration:none;font-size:.85rem;letter-spacing:.10em;text-transform:uppercase;transition:var(--transition);font-weight:400;font-family:'Syncopate',sans-serif}
   .nav-links a:hover{color:var(--gold)}
 
   /* HERO */
@@ -48,10 +48,10 @@
   .about-photo-wrap{position:relative}
   .about-photo-wrap::after{content:'';position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);z-index:0}
   .about-photo{width:100%;position:relative;z-index:1;filter:grayscale(0.2)}
-  .about-text h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:35px;color:#fff;font-family:'Oswald',sans-serif;font-weight:400;letter-spacing:.08em;color:var(--gold)}
+  .about-text h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:35px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.04em;color:var(--gold)}
   .about-text p{font-size:1.05rem;color:#aaa;margin-bottom:22px}
   .about-accent{color:var(--gold);font-size:1.1rem;font-style:italic;margin:35px 0;padding-left:25px;border-left:2px solid var(--gold);line-height:1.5}
-  .section-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-family:'Alumni Sans',sans-serif;font-weight:300}
+  .section-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-family:'Raleway',sans-serif;font-weight:400}
 
   /* GALLERY */
   .gallery-row{display:grid;grid-template-columns:repeat(4,1fr);background:#000}
@@ -68,7 +68,7 @@
   .project-card:hover .project-img{filter:brightness(0.7) grayscale(0);transform:scale(1.04)}
   .project-info{position:absolute;bottom:0;left:0;right:0;padding:40px;background:linear-gradient(to top,rgba(10,10,10,0.95) 60%,transparent)}
   .project-num{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.7}
-  .project-info h3{font-size:1.6rem;font-weight:700;color:var(--gold);margin-bottom:10px;line-height:1.2;font-family:'Oswald',sans-serif;letter-spacing:.05em}
+  .project-info h3{font-size:1.6rem;font-weight:600;color:var(--gold);margin-bottom:10px;line-height:1.2;font-family:'Jost',sans-serif;letter-spacing:.04em}
   .project-info p{font-size:.85rem;color:#aaa;line-height:1.6;max-width:420px}
   .project-line{width:30px;height:1px;background:var(--gold);margin-top:20px;transition:width .4s}
   .project-card:hover .project-line{width:60px}
@@ -82,7 +82,7 @@
   .story-video{width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--border);transition:var(--transition);position:relative}
   .story-video:hover{border-color:var(--gold)}
   .yt-player{position:absolute;top:0;left:0;width:100%;height:100%}
-  .story-text h3{font-size:1.8rem;color:var(--gold);margin-bottom:20px;font-weight:700;letter-spacing:.05em;font-family:'Oswald',sans-serif}
+  .story-text h3{font-size:1.8rem;color:var(--gold);margin-bottom:20px;font-weight:600;letter-spacing:.04em;font-family:'Jost',sans-serif}
   .story-text p{color:var(--muted);font-size:1rem;line-height:1.7}
 
   /* CONTACT */
@@ -106,7 +106,7 @@
   .modal-title{font-size:1.8rem;font-weight:400;color:#fff;margin-bottom:40px;line-height:1.2}
   .form-group{margin-bottom:24px}
   .form-group label{display:block;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-  .form-group input,.form-group textarea,.form-group select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:'Raleway',sans-serif;font-size:.95rem;padding:10px 0;outline:none;transition:.3s;-webkit-appearance:none;border-radius:0}
+  .form-group input,.form-group textarea,.form-group select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:'Jost',sans-serif;font-size:.95rem;padding:10px 0;outline:none;transition:.3s;-webkit-appearance:none;border-radius:0}
   .form-group select{cursor:pointer}
   .form-group select option{background:var(--bg2);color:var(--text)}
   .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-bottom-color:var(--gold)}
@@ -123,11 +123,11 @@
   /* Other subject input */
   .other-subject-wrap{margin-top:12px;overflow:hidden;max-height:0;transition:max-height .3s ease}
   .other-subject-wrap.visible{max-height:60px}
-  .other-subject-wrap input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:'Raleway',sans-serif;font-size:.95rem;padding:10px 0;outline:none;transition:.3s}
+  .other-subject-wrap input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:'Jost',sans-serif;font-size:.95rem;padding:10px 0;outline:none;transition:.3s}
   .other-subject-wrap input:focus{border-bottom-color:var(--gold)}
   .form-group textarea{resize:none;height:90px;line-height:1.6}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .btn-submit{margin-top:36px;width:100%;padding:15px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+  .btn-submit{margin-top:36px;width:100%;padding:15px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Syncopate',sans-serif;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .3s}
   .btn-submit:hover{background:var(--gold);color:#000}
   .btn-submit:disabled{opacity:.5;cursor:not-allowed}
   .form-success{text-align:center;padding:40px 0;display:none}
@@ -144,7 +144,7 @@
 
   .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:40px}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.6rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s;font-family:'Oswald',sans-serif;font-weight:400}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;transition:.3s;font-family:'Syncopate',sans-serif;font-weight:400}
   .mobile-menu a:hover{color:var(--gold)}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
 
@@ -194,7 +194,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
+  <a href="#" class="nav-logo" style="font-family:'Syncopate',sans-serif;font-size:1rem;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -262,7 +262,7 @@
   <div class="projects-container">
     <div class="projects-header">
       <div class="section-label">Projects</div>
-      <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:400;color:#fff">Musical Ensembles</h2>
+      <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:500;color:#fff;font-family:'Jost',sans-serif;letter-spacing:.04em">Musical Ensembles</h2>
     </div>
     <div class="projects-grid">
 
