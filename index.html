@@ -148,7 +148,10 @@
   .mobile-menu a:hover{color:var(--gold)}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
 
-  @media(max-width:1000px){
+  .hero-socials{position:absolute;right:36px;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;gap:24px;align-items:center}
+  .hero-socials a{color:rgba(255,255,255,0.45);font-size:1rem;transition:color .3s}
+  .hero-socials a:hover{color:var(--gold)}
+  @media(max-width:1000px){.hero-socials{display:none}}
     .hero-content{display:none}
     nav{padding:16px 24px}
     .nav-links{display:none}
@@ -228,9 +231,12 @@
       <button onclick="openModal()" class="btn-primary">Contact Me</button>
     </div>
   </div>
+  <div class="hero-socials">
+    <a href="https://www.facebook.com/anatoli.taran" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/anatol.taran" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@anatoltaran" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
 </section>
-
-<!-- ABOUT -->
 <section id="about">
   <div class="about-container">
     <div class="about-grid">
