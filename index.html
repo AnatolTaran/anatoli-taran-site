@@ -41,6 +41,45 @@
   .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500}
   .btn-primary:hover{background:var(--gold);color:#000}
 
+  /* MUSIC */
+  #music{padding:140px 60px;background:var(--bg3)}
+  .music-container{max-width:1200px;margin:0 auto}
+  .music-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:70px;flex-wrap:wrap;gap:24px}
+  .music-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;color:#fff;font-family:'Jost',sans-serif;letter-spacing:.04em}
+  .music-sc-link{display:inline-flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--border);padding:10px 22px;transition:all .35s;white-space:nowrap}
+  .music-sc-link i{font-size:1rem;transition:.35s}
+  .music-sc-link:hover{color:var(--gold);border-color:var(--gold)}
+  .music-sc-link:hover i{color:var(--gold)}
+  .albums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
+  .album-card{background:var(--bg3);position:relative;cursor:pointer;overflow:hidden;aspect-ratio:1/1}
+  .album-cover{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .6s ease}
+  .album-cover-placeholder{width:100%;height:100%;background:var(--bg2);display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+  .album-cover-placeholder i{font-size:2.5rem;color:var(--border)}
+  .album-card:hover .album-cover{transform:scale(1.06);filter:brightness(0.4)}
+  .album-card:hover .album-cover-placeholder{background:#1a1a1a}
+  .album-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;background:linear-gradient(to top,rgba(10,10,10,0.96) 0%,rgba(10,10,10,0.5) 55%,transparent 100%);opacity:0;transition:opacity .45s ease}
+  .album-card:hover .album-overlay{opacity:1}
+  .album-meta{transform:translateY(10px);transition:transform .45s cubic-bezier(0.16,1,0.3,1)}
+  .album-card:hover .album-meta{transform:translateY(0)}
+  .album-year{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;opacity:.8}
+  .album-title{font-size:1.05rem;font-weight:500;color:#fff;line-height:1.3;letter-spacing:.04em;margin-bottom:14px}
+  .album-listen{display:inline-flex;align-items:center;gap:8px;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:7px 14px;transition:background .3s,border-color .3s}
+  .album-card:hover .album-listen{background:rgba(201,168,76,.08);border-color:var(--gold)}
+  .album-listen i{font-size:.75rem}
+  .album-label{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(to top,rgba(10,10,10,0.9) 0%,transparent 100%);transition:opacity .45s}
+  .album-card:hover .album-label{opacity:0}
+  .album-label-title{font-size:.8rem;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .album-label-year{font-size:.6rem;color:var(--muted);letter-spacing:.15em}
+  @media(max-width:1000px){
+    #music{padding:80px 24px}
+    .albums-grid{grid-template-columns:repeat(2,1fr)}
+    .music-header{flex-direction:column;align-items:flex-start;margin-bottom:40px}
+  }
+  @media(max-width:480px){
+    .albums-grid{grid-template-columns:repeat(2,1fr)}
+    .album-title{font-size:.9rem}
+  }
+
   /* ABOUT */
   #about{padding:140px 60px;background:var(--bg)}
   .about-container{max-width:1200px;margin:0 auto}
@@ -202,6 +241,7 @@
   <a href="#" class="nav-logo" style="font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#music">Music</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#video">Performances</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -214,6 +254,7 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#music" onclick="closeMenu()">Music</a>
   <a href="#projects" onclick="closeMenu()">Projects</a>
   <a href="#video" onclick="closeMenu()">Performances</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
@@ -256,6 +297,109 @@
         <p>Today based in Warsaw, he performs regularly at the city's most atmospheric venues while continuing to develop his ensemble projects for European audiences.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="music-container">
+    <div class="music-header">
+      <h2>Discography</h2>
+      <!-- Replace href with your actual SoundCloud profile URL -->
+      <a href="https://soundcloud.com/anatoltaran" target="_blank" class="music-sc-link">
+        <i class="fab fa-soundcloud"></i> Listen on SoundCloud
+      </a>
+    </div>
+
+    <div class="albums-grid">
+
+      <!-- ================================================
+           ALBUM 1 — замени данные:
+           src="..."        → файл обложки (напр. album1.jpg)
+           data-year="..."  → год выпуска
+           data-title="..." → название альбома
+           data-sc="..."    → ссылка на альбом в SoundCloud
+           ================================================ -->
+      <div class="album-card" onclick="openAlbum(this)">
+        <img class="album-cover" src="album1.jpg" alt="Album 1"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          data-year="2024" data-title="Album Title"
+          data-sc="https://soundcloud.com/anatoltaran">
+        <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        <div class="album-label">
+          <div class="album-label-title">Album Title</div>
+          <div class="album-label-year">2024</div>
+        </div>
+        <div class="album-overlay">
+          <div class="album-meta">
+            <div class="album-year">2024</div>
+            <div class="album-title">Album Title</div>
+            <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALBUM 2 -->
+      <div class="album-card" onclick="openAlbum(this)">
+        <img class="album-cover" src="album2.jpg" alt="Album 2"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          data-year="2022" data-title="Album Title"
+          data-sc="https://soundcloud.com/anatoltaran">
+        <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        <div class="album-label">
+          <div class="album-label-title">Album Title</div>
+          <div class="album-label-year">2022</div>
+        </div>
+        <div class="album-overlay">
+          <div class="album-meta">
+            <div class="album-year">2022</div>
+            <div class="album-title">Album Title</div>
+            <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALBUM 3 -->
+      <div class="album-card" onclick="openAlbum(this)">
+        <img class="album-cover" src="album3.jpg" alt="Album 3"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          data-year="2020" data-title="Album Title"
+          data-sc="https://soundcloud.com/anatoltaran">
+        <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        <div class="album-label">
+          <div class="album-label-title">Album Title</div>
+          <div class="album-label-year">2020</div>
+        </div>
+        <div class="album-overlay">
+          <div class="album-meta">
+            <div class="album-year">2020</div>
+            <div class="album-title">Album Title</div>
+            <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALBUM 4 -->
+      <div class="album-card" onclick="openAlbum(this)">
+        <img class="album-cover" src="album4.jpg" alt="Album 4"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          data-year="2018" data-title="Album Title"
+          data-sc="https://soundcloud.com/anatoltaran">
+        <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        <div class="album-label">
+          <div class="album-label-title">Album Title</div>
+          <div class="album-label-year">2018</div>
+        </div>
+        <div class="album-overlay">
+          <div class="album-meta">
+            <div class="album-year">2018</div>
+            <div class="album-title">Album Title</div>
+            <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /albums-grid -->
   </div>
 </section>
 
