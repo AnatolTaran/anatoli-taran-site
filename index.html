@@ -53,6 +53,7 @@
 
   /* Album grid — 2 columns of rows */
   .albums-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+  .albums-grid::after{content:'';background:var(--bg3)}
   .album-card{background:var(--bg3);display:flex;align-items:stretch;gap:0;cursor:pointer;transition:background .3s;position:relative;overflow:hidden}
   .album-card:hover{background:#1c1c1c}
   .album-cover-wrap{flex:0 0 160px;position:relative;overflow:hidden}
