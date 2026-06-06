@@ -51,7 +51,7 @@
   .btn-primary:hover{background:var(--gold);color:#000}
 
   /* MUSIC */
-  #music{padding:140px 60px;background:var(--bg3)}
+  #music{padding:140px 60px;background:var(--bg)}
   .music-container{max-width:1200px;margin:0 auto}
   .music-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:70px;flex-wrap:wrap;gap:24px}
   .music-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;color:#fff;font-family:'Jost',sans-serif;letter-spacing:.04em}
@@ -62,8 +62,8 @@
 
   /* Album grid — 2 columns of rows */
   .albums-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px 0;background:var(--border)}
-  .albums-grid::after{content:'';background:var(--bg3)}
-  .album-card{background:var(--bg3);display:flex;align-items:stretch;gap:0;cursor:pointer;transition:background .3s;position:relative;overflow:hidden}
+  .albums-grid::after{content:'';background:var(--bg)}
+  .album-card{background:var(--bg);display:flex;align-items:stretch;gap:0;cursor:pointer;transition:background .3s;position:relative;overflow:hidden}
   .album-card:hover{background:#1c1c1c}
   .album-cover-wrap{flex:0 0 160px;position:relative;overflow:hidden}
   .album-cover{width:160px;height:160px;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s ease}
@@ -108,11 +108,11 @@
   .gallery-row img:hover{filter:brightness(1) grayscale(0);transform:scale(1.03);z-index:2}
 
   /* PROJECTS */
-  #projects{padding:140px 60px;background:var(--bg2)}
+  #projects{padding:140px 60px;background:var(--bg)}
   .projects-container{max-width:1200px;margin:0 auto}
   .projects-header{margin-bottom:80px}
   .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
-  .project-card{background:var(--bg2);position:relative;overflow:hidden;cursor:default}
+  .project-card{background:var(--bg);position:relative;overflow:hidden;cursor:default}
   .project-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(0.75) grayscale(0.3);transition:var(--transition)}
   .project-card:hover .project-img{filter:brightness(0.7) grayscale(0);transform:scale(1.04)}
   .project-info{position:absolute;bottom:0;left:0;right:0;padding:40px;background:linear-gradient(to top,rgba(10,10,10,0.95) 60%,transparent)}
