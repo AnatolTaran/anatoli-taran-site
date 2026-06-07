@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN06CYXXRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZN06CYXXRL');
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Taran Quartet — jazz ensemble led by accordionist Anatoli Taran. Original compositions and arrangements by Piazzolla, Galliano, Corea. Available for festivals and concerts across Europe."/>
+<title>Taran Quartet — Anatoli Taran</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo site.png"/>
+<link rel="apple-touch-icon" href="logo site.png"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0a0a;--bg2:#111;--bg3:#161616;
+    --gold:#c9a84c;--gold2:#e8c97a;
+    --text:#e8e4dc;--muted:#888;--border:#222;
+    --transition:all 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.92);border-bottom:1px solid var(--border)}
+  .nav-logo{text-decoration:none;font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  .nav-links{display:flex;gap:40px;list-style:none}
+  .nav-links a{color:#fff;text-decoration:none;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:var(--transition);font-weight:500}
+  .nav-links a:hover{color:var(--gold)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+  .burger span{display:block;width:24px;height:1px;background:#fff;transition:.3s}
+  @media(max-width:1000px){
+    nav{padding:0 24px}
+    .nav-links{display:none}
+    .burger{display:flex}
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase}
+
+  /* HERO */
+  .proj-hero{height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 9% 10%}
+  .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:brightness(.55)}
+  .proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0.5) 40%,rgba(10,10,10,0.1) 100%)}
+  .proj-hero-content{position:relative;z-index:2}
+  .proj-hero-label{font-size:.65rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .proj-hero-title{font-family:'Syncopate',sans-serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;line-height:1;margin-bottom:20px}
+  .proj-hero-sub{font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+
+  /* SECTION BASE */
+  .section{padding:120px 60px;max-width:1200px;margin:0 auto}
+  .section-divider{border:none;border-top:1px solid var(--border);margin:0 60px}
+  .sec-label{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;opacity:.8}
+  .sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:#fff;letter-spacing:.04em;line-height:1.2;margin-bottom:40px}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+  .about-photo-wrap{position:relative}
+  .about-photo-wrap::after{content:'';position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);z-index:0}
+  .about-photo{width:100%;position:relative;z-index:1;display:block;filter:grayscale(.15)}
+  .about-text p{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:24px}
+  .about-quote{border-left:2px solid var(--gold);padding:20px 28px;margin:36px 0;font-style:italic;color:var(--text);font-size:1.05rem;line-height:1.7}
+  .about-quote cite{display:block;margin-top:12px;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+  /* MUSICIANS */
+  .musicians-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
+  .musician-card{background:var(--bg);padding:0;overflow:hidden;position:relative}
+  .musician-photo-wrap{position:relative;overflow:hidden;aspect-ratio:3/4}
+  .musician-photo{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.3);transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s}
+  .musician-card:hover .musician-photo{transform:scale(1.04);filter:grayscale(0)}
+  .musician-photo-placeholder{width:100%;height:100%;background:var(--bg2);display:flex;align-items:center;justify-content:center}
+  .musician-photo-placeholder i{font-size:3rem;color:var(--border)}
+  .musician-info{padding:24px 20px}
+  .musician-name{font-size:1rem;font-weight:500;color:#fff;letter-spacing:.04em;margin-bottom:4px}
+  .musician-role{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8}
+
+  /* GALLERY */
+  .gallery-wrap{display:flex;flex-direction:column;gap:4px}
+  .gallery-row{display:flex;gap:4px}
+  .gal-wide{flex:2;overflow:hidden;position:relative}
+  .gal-sq{flex:1;overflow:hidden;position:relative}
+  .gal-wide,.gal-sq{height:340px}
+  .gal-photo{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s}
+  .gal-wide:hover .gal-photo,.gal-sq:hover .gal-photo{transform:scale(1.04);filter:brightness(.8)}
+  .gal-placeholder{width:100%;height:100%;background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .gal-placeholder i{font-size:2rem;color:var(--border)}
+  .gal-placeholder span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border)}
+
+  /* VIDEO */
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+  .video-item{position:relative;aspect-ratio:16/9;background:var(--bg2);overflow:hidden}
+  .video-item iframe{width:100%;height:100%;border:none;display:block}
+  .video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+  .video-placeholder i{font-size:2.5rem;color:var(--border)}
+  .video-placeholder span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border)}
+
+  /* CONTACT STRIP */
+  .contact-strip{padding:100px 60px;text-align:center;border-top:1px solid var(--border)}
+  .contact-strip h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:400;margin-bottom:32px}
+  .contact-strip a.email{color:var(--gold);text-decoration:none;font-size:clamp(1.2rem,3vw,2rem);transition:.3s;display:block;margin-bottom:12px}
+  .contact-strip a.email:hover{opacity:.7}
+  .contact-strip .phone{color:var(--muted);letter-spacing:2px;font-size:.9rem}
+  .btn-back{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:13px 34px;border:1px solid var(--muted);color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s}
+  .btn-back:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* FOOTER */
+  footer{padding:24px 60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)}
+
+  /* RESPONSIVE */
+  @media(max-width:1000px){
+    .section{padding:80px 24px}
+    .section-divider{margin:0 24px}
+    .about-grid{grid-template-columns:1fr;gap:50px}
+    .about-photo-wrap::after{display:none}
+    .musicians-grid{grid-template-columns:1fr 1fr}
+    .gal-wide,.gal-sq{height:220px}
+    .video-grid{grid-template-columns:1fr}
+    .contact-strip{padding:60px 24px}
+  }
+  @media(max-width:600px){
+    .proj-hero{padding:0 24px 14%}
+    .gallery-row{flex-direction:column}
+    .gal-wide,.gal-sq{height:260px;flex:none}
+    .musicians-grid{grid-template-columns:1fr 1fr}
+    footer{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Anatoli Taran</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#music">Music</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#video">Performances</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="closeMenu()">About</a>
+  <a href="index.html#music" onclick="closeMenu()">Music</a>
+  <a href="index.html#projects" onclick="closeMenu()">Projects</a>
+  <a href="index.html#video" onclick="closeMenu()">Performances</a>
+  <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <img class="proj-hero-img" src="tq-hero.jpg" alt="Taran Quartet"
+    onerror="this.style.display='none'">
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <div class="proj-hero-label">Project</div>
+    <div class="proj-hero-title">Taran<br>Quartet</div>
+    <div class="proj-hero-sub">Accordion · Guitar · Double Bass · Drums</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <img src="tq-photo.jpg" class="about-photo" alt="Taran Quartet"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div style="display:none;width:100%;aspect-ratio:3/4;background:var(--bg2);align-items:center;justify-content:center">
+        <i class="fas fa-compact-disc" style="font-size:3rem;color:var(--border)"></i>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="sec-label">Sound of Europe</div>
+      <h2 class="sec-title">Four musicians.<br>One sound.</h2>
+      <p>Taran Quartet is led by accordionist and composer Anatol Taran. The programme combines his original works with carefully chosen pieces by Piazzolla, Galliano, and Chick Corea — all filtered through the quartet's own musical language.</p>
+      <div class="about-quote">
+        "The accordion is not a folk instrument here. It leads, breathes, and improvises — on equal terms with the rhythm section."
+        <cite>— Anatoli Taran</cite>
+      </div>
+      <p style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">
+        Warsaw, Poland · Available across Europe
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- MUSICIANS -->
+<div class="section">
+  <div class="sec-label">The Ensemble</div>
+  <h2 class="sec-title">Musicians</h2>
+  <div class="musicians-grid">
+
+    <!-- Anatol Taran -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="photo8.jpg" alt="Anatol Taran"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Anatol Taran</div>
+        <div class="musician-role">Accordion · Composer</div>
+      </div>
+    </div>
+
+    <!-- Łukasz Chyliński -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="tq-guitar.jpg" alt="Łukasz Chyliński"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Łukasz Chyliński</div>
+        <div class="musician-role">Guitar</div>
+      </div>
+    </div>
+
+    <!-- Ludmila Krukowska -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="tq-bass.jpg" alt="Ludmila Krukowska"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Ludmila Krukowska</div>
+        <div class="musician-role">Double Bass</div>
+      </div>
+    </div>
+
+    <!-- Kuba Kinsner -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="tq-drums.jpg" alt="Kuba Kinsner"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Kuba Kinsner</div>
+        <div class="musician-role">Drums</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- GALLERY -->
+<div class="section">
+  <div class="sec-label">On Stage</div>
+  <h2 class="sec-title">Gallery</h2>
+  <div class="gallery-wrap">
+
+    <!-- Row 1: wide + 2 square -->
+    <div class="gallery-row">
+      <div class="gal-wide">
+        <img class="gal-photo" src="tq-gallery1.jpg" alt="Taran Quartet live"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="gal-placeholder" style="display:none"><i class="fas fa-camera"></i><span>Photo 1</span></div>
+      </div>
+      <div class="gal-sq">
+        <img class="gal-photo" src="tq-gallery2.jpg" alt="Taran Quartet live"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="gal-placeholder" style="display:none"><i class="fas fa-camera"></i><span>Photo 2</span></div>
+      </div>
+      <div class="gal-sq">
+        <img class="gal-photo" src="tq-gallery3.jpg" alt="Taran Quartet live"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="gal-placeholder" style="display:none"><i class="fas fa-camera"></i><span>Photo 3</span></div>
+      </div>
+    </div>
+
+    <!-- Row 2: 2 square + wide (зеркально) -->
+    <div class="gallery-row">
+      <div class="gal-sq">
+        <img class="gal-photo" src="tq-gallery4.jpg" alt="Taran Quartet live"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="gal-placeholder" style="display:none"><i class="fas fa-camera"></i><span>Photo 4</span></div>
+      </div>
+      <div class="gal-sq">
+        <img class="gal-photo" src="tq-gallery5.jpg" alt="Taran Quartet live"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="gal-placeholder" style="display:none"><i class="fas fa-camera"></i><span>Photo 5</span></div>
+      </div>
+      <div class="gal-wide">
+        <img class="gal-photo" src="tq-gallery6.jpg" alt="Taran Quartet live"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="gal-placeholder" style="display:none"><i class="fas fa-camera"></i><span>Photo 6</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- VIDEO -->
+<div class="section">
+  <div class="sec-label">Live Recordings</div>
+  <h2 class="sec-title">Video</h2>
+  <div class="video-grid">
+    <div class="video-item">
+      <!-- замени VIDEO_ID_1 на ID видео с YouTube -->
+      <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen loading="lazy"></iframe> -->
+      <div class="video-placeholder"><i class="fab fa-youtube"></i><span>Video coming soon</span></div>
+    </div>
+    <div class="video-item">
+      <!-- замени VIDEO_ID_2 на ID видео с YouTube -->
+      <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen loading="lazy"></iframe> -->
+      <div class="video-placeholder"><i class="fab fa-youtube"></i><span>Video coming soon</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 ANATOLI TARAN · WARSAW, POLAND
+</footer>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('burger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';
+  }
+  function closeMenu(){
+    document.getElementById('burger').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow='';
+  }
+</script>
+
+</body>
+</html>
