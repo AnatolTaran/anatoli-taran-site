@@ -197,12 +197,12 @@
   .burger.open span:nth-child(2){opacity:0}
   .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:250;flex-direction:column;align-items:flex-start;justify-content:center;gap:40px;padding-left:15%}
   .mobile-menu.open{display:flex}
   .mobile-menu a{color:#fff;text-decoration:none;font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;transition:.3s;font-family:'Jost',sans-serif;font-weight:500}
   .mobile-menu a:hover{color:var(--gold)}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
-  .mobile-submenu{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:-16px}
+  .mobile-submenu{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:-16px;padding-left:20px}
   .mobile-submenu a{font-size:.8rem !important;letter-spacing:.2em;opacity:.65;color:#fff !important}
   .mobile-submenu a:hover{opacity:1;color:#fff !important}
 
