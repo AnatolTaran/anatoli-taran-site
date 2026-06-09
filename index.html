@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN06CYXXRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZN06CYXXRL');
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Anatoli Taran — accordionist performing jazz, tango and contemporary music across Europe. Solo and ensemble projects. Available for festivals, concerts and bookings."/>
+<title>Anatoli Taran — Accordionist & Composer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo site.png"/>
+<link rel="apple-touch-icon" href="logo site.png"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0a0a;--bg2:#111;--bg3:#161616;
+    --gold:#c9a84c;--gold2:#e8c97a;
+    --text:#e8e4dc;--muted:#888;--border:#222;
+    --transition:all 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,transparent 100%);border-bottom:none}
+  .nav-logo{text-decoration:none;display:flex;align-items:center;height:80px}
+  .nav-logo img{height:50px;width:auto;display:block}
+  .nav-links{display:flex;gap:40px;list-style:none}
+  .nav-links a{color:#ffffff;text-decoration:none;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:var(--transition);font-weight:500;font-family:'Jost',sans-serif}
+  .nav-links a:hover{color:var(--gold)}
+
+  /* HERO */
+  #hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:0 0 0 9%}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 1%;filter:brightness(1.05)}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.80) 20%,rgba(10,10,10,0.72) 35%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.30) 65%,rgba(10,10,10,0.12) 80%,rgba(10,10,10,0.03) 92%,transparent 100%)}
+  .hero-content{position:relative;z-index:2;text-align:left;max-width:700px;margin-top:2vh}
+  .hero-subtitle{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .hero-name{font-size:clamp(4rem, 3.7vw, 3.7rem);font-weight:500;line-height:1.05;letter-spacing:.10em;color:#fff;margin-bottom:20px;font-family:'Syncopate',sans-serif;text-transform:uppercase;white-space:nowrap}
+  .hero-instrument{font-size:1.1rem;color:var(--gold);font-style:normal;letter-spacing:.32em;margin-bottom:50px;font-family:'Jost',sans-serif;text-transform:uppercase;font-weight:400}
+  .hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .btn-primary{display:inline-block;padding:13px 34px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s;background:transparent;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500}
+  .btn-primary:hover{background:var(--gold);color:#000}
+
+  /* MUSIC */
+  #music{padding:140px 60px;background:var(--bg)}
+  .music-container{max-width:1200px;margin:0 auto}
+  .music-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:70px;flex-wrap:wrap;gap:24px}
+  .music-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;color:#fff;font-family:'Jost',sans-serif;letter-spacing:.04em}
+  .music-sc-link{display:inline-flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--border);padding:10px 22px;transition:all .35s;white-space:nowrap}
+  .music-sc-link i{font-size:1rem;transition:.35s}
+  .music-sc-link:hover{color:var(--gold);border-color:var(--gold)}
+  .music-sc-link:hover i{color:var(--gold)}
+
+  /* Album grid — 2 columns of rows */
+  .albums-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px 0;background:var(--border)}
+  .albums-grid::after{content:'';background:var(--bg)}
+  .album-card{background:var(--bg);display:flex;align-items:stretch;gap:0;cursor:pointer;transition:background .3s;position:relative;overflow:hidden}
+  .album-card:hover{background:#1c1c1c}
+  .album-cover-wrap{flex:0 0 160px;position:relative;overflow:hidden}
+  .album-cover{width:160px;height:160px;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s ease}
+  .album-card:hover .album-cover{transform:scale(1.05);filter:brightness(0.75)}
+  .album-cover-placeholder{width:160px;height:160px;background:var(--bg2);display:flex;align-items:center;justify-content:center}
+  .album-cover-placeholder i{font-size:2rem;color:var(--border)}
+  .album-info{flex:1;padding:28px 32px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .album-meta-tag{font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:.85}
+  .album-info-title{font-size:1.15rem;font-weight:500;color:#fff;line-height:1.25;letter-spacing:.03em}
+  .album-info-sub{font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.4}
+  .album-listen{display:inline-flex;align-items:center;gap:8px;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.35);padding:7px 14px;margin-top:8px;align-self:flex-start;transition:background .3s,border-color .3s}
+  .album-card:hover .album-listen{background:rgba(201,168,76,.08);border-color:var(--gold)}
+  .album-listen i{font-size:.7rem}
+
+  @media(max-width:1000px){
+    #music{padding:80px 24px}
+    .albums-grid{grid-template-columns:1fr}
+    .music-header{flex-direction:column;align-items:flex-start;margin-bottom:40px}
+  }
+  @media(max-width:600px){
+    .album-cover-wrap{flex:0 0 110px}
+    .album-cover,.album-cover-placeholder{width:110px;height:110px}
+    .album-info{padding:18px 20px}
+    .album-info-title{font-size:1rem}
+  }
+
+  /* ABOUT */
+  #about{padding:140px 60px;background:var(--bg)}
+  .about-container{max-width:1200px;margin:0 auto}
+  .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:100px;align-items:center}
+  .about-photo-wrap{position:relative}
+  .about-photo-wrap::after{content:'';position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);z-index:0}
+  .about-photo{width:100%;position:relative;z-index:1;filter:grayscale(0.2)}
+  .about-text h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:35px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.04em;color:var(--gold)}
+  .about-text p{font-size:1.05rem;color:#aaa;margin-bottom:22px}
+  .about-accent{color:var(--gold);font-size:1.1rem;font-style:italic;margin:35px 0;padding-left:25px;border-left:2px solid var(--gold);line-height:1.5}
+  .section-label{display:none}
+
+  /* GALLERY */
+  .gallery-row{display:grid;grid-template-columns:repeat(4,1fr);background:#000}
+  .gallery-row img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:brightness(0.5) grayscale(1);transition:var(--transition);cursor:pointer}
+  .gallery-row img:hover{filter:brightness(1) grayscale(0);transform:scale(1.03);z-index:2}
+
+  /* PROJECTS */
+  #projects{padding:140px 60px;background:var(--bg)}
+  .projects-container{max-width:1200px;margin:0 auto}
+  .projects-header{margin-bottom:80px}
+  .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+  .project-card{background:var(--bg);position:relative;overflow:hidden;cursor:default}
+  .project-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(0.75) grayscale(0.3);transition:var(--transition)}
+  .project-card:hover .project-img{filter:brightness(0.7) grayscale(0);transform:scale(1.04)}
+  .project-info{position:absolute;bottom:0;left:0;right:0;padding:40px;background:linear-gradient(to top,rgba(10,10,10,0.95) 60%,transparent)}
+  .project-num{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.7}
+  .project-info h3{font-size:1.6rem;font-weight:600;color:var(--gold);margin-bottom:10px;line-height:1.2;font-family:'Jost',sans-serif;letter-spacing:.04em}
+  .project-info p{font-size:.85rem;color:#aaa;line-height:1.6;max-width:420px}
+  .project-line{width:30px;height:1px;background:var(--gold);margin-top:20px;transition:width .4s}
+  .project-card:hover .project-line{width:60px}
+
+  /* VIDEO */
+  #video{padding:140px 60px;background:var(--bg)}
+  .story-item{display:grid;grid-template-columns:1.2fr 0.8fr;gap:80px;align-items:center;margin-bottom:140px;max-width:1200px;margin-left:auto;margin-right:auto}
+  .story-item:last-child{margin-bottom:0}
+  .story-item:nth-child(even){direction:rtl}
+  .story-item:nth-child(even) .story-text{direction:ltr;text-align:left}
+  .story-video{width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--border);transition:var(--transition);position:relative}
+  .story-video:hover{border-color:var(--gold)}
+  .yt-player{position:absolute;top:0;left:0;width:100%;height:100%}
+  .story-text h3{font-size:1.8rem;color:var(--gold);margin-bottom:20px;font-weight:600;letter-spacing:.04em;font-family:'Jost',sans-serif}
+  .story-text p{color:var(--muted);font-size:1rem;line-height:1.7}
+
+  /* CONTACT */
+  #contact{padding:140px 60px;text-align:center;background:var(--bg)}
+  .contact-link{color:var(--gold);text-decoration:none;font-size:clamp(1.5rem,4vw,2.5rem);transition:.3s;display:block;margin:30px 0}
+  .contact-link:hover{opacity:.7}
+  .social-icons{display:flex;justify-content:center;gap:45px;margin-top:50px}
+  .social-icons a{color:var(--muted);font-size:2.2rem;transition:var(--transition)}
+  .social-icons a:hover{color:var(--gold);transform:translateY(-8px)}
+
+  footer{padding:24px 60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)}
+
+  /* MODAL */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .4s ease}
+  .modal-backdrop.open{opacity:1;pointer-events:all}
+  .modal-box{background:var(--bg2);border:1px solid var(--border);max-width:560px;width:100%;padding:60px;position:relative;transform:translateY(30px);transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+  .modal-backdrop.open .modal-box{transform:translateY(0)}
+  .modal-close{position:absolute;top:24px;right:28px;background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;transition:.2s;line-height:1}
+  .modal-close:hover{color:var(--gold)}
+  .modal-label{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+  .modal-title{font-size:1.8rem;font-weight:400;color:#fff;margin-bottom:40px;line-height:1.2}
+  .form-group{margin-bottom:24px}
+  .form-group label{display:block;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .form-group input,.form-group textarea,.form-group select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:'Jost',sans-serif;font-size:.95rem;padding:10px 0;outline:none;transition:.3s;-webkit-appearance:none;border-radius:0}
+  .form-group select{cursor:pointer}
+  .form-group select option{background:var(--bg2);color:var(--text)}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-bottom-color:var(--gold)}
+  /* Override browser autofill background */
+  .form-group input:-webkit-autofill,
+  .form-group input:-webkit-autofill:hover,
+  .form-group input:-webkit-autofill:focus,
+  .form-group input:-webkit-autofill:active{
+    -webkit-box-shadow:0 0 0 1000px #111 inset !important;
+    -webkit-text-fill-color:var(--text) !important;
+    caret-color:var(--text);
+    transition:background-color 9999s ease-in-out 0s;
+  }
+  /* Other subject input */
+  .other-subject-wrap{margin-top:12px;overflow:hidden;max-height:0;transition:max-height .3s ease}
+  .other-subject-wrap.visible{max-height:60px}
+  .other-subject-wrap input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:'Jost',sans-serif;font-size:.95rem;padding:10px 0;outline:none;transition:.3s}
+  .other-subject-wrap input:focus{border-bottom-color:var(--gold)}
+  .form-group textarea{resize:none;height:90px;line-height:1.6}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .btn-submit{margin-top:36px;width:100%;padding:15px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+  .btn-submit:hover{background:var(--gold);color:#000}
+  .btn-submit:disabled{opacity:.5;cursor:not-allowed}
+  .form-success{text-align:center;padding:40px 0;display:none}
+  .form-success .check{font-size:2.5rem;color:var(--gold);margin-bottom:16px}
+  .form-success p{color:var(--muted);font-size:.9rem;line-height:1.7}
+  @media(max-width:600px){.modal-box{padding:36px 24px}.form-row{grid-template-columns:1fr}}
+
+  /* BURGER MENU */
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:300;background:none;border:none;position:relative}
+  .burger span{display:block;width:24px;height:2px;background:#fff;transition:var(--transition)}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.97);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;transition:.3s;font-family:'Jost',sans-serif;font-weight:500}
+  .mobile-menu a:hover{color:var(--gold)}
+  .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
+
+  .hero-socials{position:absolute;right:24px;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;gap:12px;align-items:center}
+  .hero-socials a{color:rgba(255,255,255,0.80);font-size:1rem;transition:color .3s}
+  .hero-socials a:hover{color:var(--gold)}
+  @media(max-width:1000px){.hero-socials{display:none}}
+  @media(max-width:1000px){
+    .hero-content{display:none}
+    nav{padding:16px 24px}
+    .nav-links{display:none}
+    .burger{display:flex}
+    #hero{padding:0 24px;align-items:center;text-align:center}
+    #hero{height:100vh;padding:0}
+    .hero-img{position:absolute;width:100%;height:100%;object-fit:cover;object-position:center 25%;transform: scale(1.75);transform-origin:center 35%;}
+    .hero-overlay{background:rgba(0,0,0,0.3)}
+    .hero-cta{justify-content:center}
+    #about{padding:80px 24px}
+    .about-grid{grid-template-columns:1fr;gap:50px}
+    .about-photo-wrap::after{display:none}
+    #projects{padding:80px 24px}
+    .projects-grid{grid-template-columns:1fr}
+    .project-card{display:flex;flex-direction:column}
+    .project-img{position:relative;aspect-ratio:3/2;flex-shrink:0}
+    .project-info{position:relative;padding:28px 20px 32px}
+    .project-info p{font-size:.9rem;color:#aaa}
+    .project-info h3{font-size:1.4rem}
+    #video{padding:80px 24px}
+    .story-item{grid-template-columns:1fr;gap:40px;margin-bottom:80px}
+    .story-item:nth-child(even){direction:ltr}
+    .gallery-row{grid-template-columns:1fr 1fr}
+    #contact{padding:80px 24px}
+    footer{padding:20px 24px}
+  }
+
+  @media(max-width:480px){
+    #hero{padding:0 20px 60px}
+    .hero-name{font-size:clamp(2.8rem,14vw,4rem)}
+    .hero-instrument{font-size:.9rem}
+    .about-text h2{font-size:1.7rem}
+    .gallery-row{grid-template-columns:1fr 1fr}
+    .project-info{padding:20px 16px 24px}
+    .project-info h3{font-size:1.2rem}
+    .story-text h3{font-size:1.3rem}
+    .contact-link{font-size:1.1rem}
+    .social-icons{gap:28px}
+    .social-icons a{font-size:1.7rem}
+    .modal-box{padding:32px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo" style="font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;white-space:nowrap">Anatoli Taran</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#video">Performances</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#music" onclick="closeMenu()">Music</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#video" onclick="closeMenu()">Performances</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <button onclick="closeMenu();openModal()" class="btn-primary" style="margin-top:20px">Contact Me</button>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <picture>
+    <source media="(max-width:1000px)" srcset="photo23.png">
+    <img class="hero-img" src="photo22.jpg" alt="Anatoli Taran">
+  </picture>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+
+    <div class="hero-name">Anatoli Taran</div>
+    <div class="hero-instrument">Accordionist · Composer</div>
+    <div class="hero-cta">
+      <button onclick="openModal()" class="btn-primary">Contact Me</button>
+    </div>
+  </div>
+  <div class="hero-socials">
+    <a href="https://www.facebook.com/anatoli.taran" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/anatol.taran" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@anatoltaran" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</section>
+<section id="about">
+  <div class="about-container">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <img src="photo8.jpg" class="about-photo" alt="Anatoli Taran">
+      </div>
+      <div class="about-text">
+        <div class="section-label">The Artist</div>
+        <h2>One of Eastern Europe's leading accordionists</h2>
+        <p>Anatoli Taran is a Belarusian accordionist based in Warsaw, widely recognized for his technically exceptional playing and innovative approach to the instrument. His distinctive sound bridges jazz, tango, and contemporary music — pushing the accordion far beyond its traditional boundaries.</p>
+        <div class="about-accent">"I believe a musician should never stay in one place. To remain relevant, you need to be versatile, flexible — able to collaborate with other artists and work across different directions."</div>
+         <p>He is a member of juries at international accordion competitions and an endorsed artist of Victoria Accordions.<p>
+        <p>Today based in Warsaw, he performs regularly at the city's most atmospheric venues while continuing to develop his ensemble projects for European audiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="music-container">
+    <div class="music-header">
+      <h2>Music</h2>
+      <a href="https://soundcloud.com/anatoltaran" target="_blank" class="music-sc-link">
+        <i class="fab fa-soundcloud"></i> Listen on SoundCloud
+      </a>
+    </div>
+
+    <div class="albums-grid">
+
+      <!-- ALBUM 1 — Jazz Pieces -->
+      <div class="album-card" onclick="openAlbum(this)"
+           data-sc="https://soundcloud.com/anatoly-taran-23680881/sets/jazz-piece">
+        <div class="album-cover-wrap">
+          <img class="album-cover" src="jazz pieces.jpg"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        </div>
+        <div class="album-info">
+          <div class="album-meta-tag">2013 · Album</div>
+          <div class="album-info-title">Jazz Pieces</div>
+          <div class="album-info-sub">Compositions for Accordion</div>
+          <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+        </div>
+      </div>
+
+      <!-- ALBUM 2 — Solo -->
+      <div class="album-card" onclick="openAlbum(this)"
+           data-sc="https://soundcloud.com/anatoly-taran-23680881/sets/solo">
+        <div class="album-cover-wrap">
+          <img class="album-cover" src="solo.jpg"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        </div>
+        <div class="album-info">
+          <div class="album-meta-tag">2018 · Albuum</div>
+          <div class="album-info-title">Solo</div>
+          <div class="album-info-sub"></div>
+          <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+        </div>
+      </div>
+
+      <!-- ALBUM 3 — Taran Trio -->
+      <div class="album-card" onclick="openAlbum(this)"
+           data-sc="https://soundcloud.com/anatoly-taran-23680881/sets/taran-trio">
+        <div class="album-cover-wrap">
+          <img class="album-cover" src="taran trio.jpg"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        </div>
+        <div class="album-info">
+          <div class="album-meta-tag">2018 · EP</div>
+          <div class="album-info-title">Taran Trio</div>
+          <div class="album-info-sub">3 Tracks</div>
+          <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+        </div>
+      </div>
+
+      <!-- ALBUM 4 — Taran Quartet -->
+      <div class="album-card" onclick="openAlbum(this)"
+           data-sc="https://soundcloud.com/anatoly-taran-23680881/sets/taran-quartet">
+        <div class="album-cover-wrap">
+          <img class="album-cover" src="taran quartet.jpg"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        </div>
+        <div class="album-info">
+          <div class="album-meta-tag">2024 · Album</div>
+          <div class="album-info-title">Taran Quartet</div>
+          <div class="album-info-sub">4 Tracks</div>
+          <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+        </div>
+      </div>
+
+      <!-- ALBUM 5 — Silent Water -->
+      <div class="album-card" onclick="openAlbum(this)"
+           data-sc="https://soundcloud.com/anatoly-taran-23680881/anatoli-taran-silent-water">
+        <div class="album-cover-wrap">
+          <img class="album-cover" src="silent water.jpg"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="album-cover-placeholder" style="display:none"><i class="fas fa-compact-disc"></i></div>
+        </div>
+        <div class="album-info">
+          <div class="album-meta-tag">2024 · Single</div>
+          <div class="album-info-title">Silent Water</div>
+          <div class="album-info-sub"></div>
+          <div class="album-listen"><i class="fas fa-play"></i> Listen</div>
+        </div>
+      </div>
+
+    </div><!-- /albums-grid -->
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery-row">
+  <img src="photo4.jpg" alt="Anatoli Taran performing">
+  <img src="photo5.jpg" alt="Anatoli Taran live">
+  <img src="photo3.jpg" alt="Anatoli Taran">
+  <img src="photo2.jpg" alt="Anatoli Taran portrait">
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-container">
+    <div class="projects-header">
+      <div class="section-label">Projects</div>
+      <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:500;color:#fff;font-family:'Jost',sans-serif;letter-spacing:.04em">Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <a href="taran_quartet.html" class="project-card" style="text-decoration:none;cursor:pointer">
+        <img src="photo15.jpg" class="project-img" alt="Taran Quartet"
+          onerror="this.style.background='#161616';this.style.minHeight='300px'"/>
+        <div class="project-info">
+          <div class="project-num">01</div>
+          <h3>Taran Quartet</h3>
+          <p>A jazz formation celebrated for its inventive sound — spanning modern jazz and avant-garde. Winners of the 67th Trophée Mondial de l'Accordéon, France 2017. The quartet performs original compositions inspired by various genres and cultural influences, lending their music a distinctive character.</p>
+          <div class="project-line"></div>
+        </div>
+      </a>
+
+      <div class="project-card">
+        <img src="photo16.jpg" class="project-img" alt="Tango d'Amore Project"
+          onerror="this.style.background='#161616';this.style.minHeight='300px'"/>
+        <div class="project-info">
+          <div class="project-num">02</div>
+          <h3>Tango d'Amore Project</h3>
+          <p>A dedicated tango project exploring the full emotional range of the genre — from classic Buenos Aires tango to nuevo tango. Performing at the finest venues across Warsaw and throughout Poland.</p>
+          <div class="project-line"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="section-label" style="text-align:center;margin-bottom:80px">Selected Works</div>
+
+  <div class="story-item">
+    <div class="story-video">
+      <div id="player1" class="yt-player" data-video-id="GiYmHs3wXsc"></div>
+    </div>
+    <div class="story-text">
+      <h3>The Virtuoso Sound</h3>
+      <p>Technical precision meets emotional depth. This performance showcases the full range of the accordion as a lead solo instrument.</p>
+    </div>
+  </div>
+
+  <div class="story-item">
+    <div class="story-video">
+      <div id="player2" class="yt-player" data-video-id="vwvga0sfVV0"></div>
+    </div>
+    <div class="story-text">
+      <h3>Original Music</h3>
+      <p>Each piece carries the musician's personal vision and emotional truth, translated into sound.</p>
+    </div>
+  </div>
+
+  <div class="story-item">
+    <div class="story-video">
+      <div id="player3" class="yt-player" data-video-id="4DDPJ4JOFe4"></div>
+    </div>
+    <div class="story-text">
+      <h3>Modern Jazz Dialogues</h3>
+      <p>Exploring contemporary jazz structures and improvisational freedom with the Taran Quartet</p>
+    </div>
+  </div>
+
+  <div class="story-item">
+    <div class="story-video">
+      <div id="player4" class="yt-player" data-video-id="HR2VEF0xLgI"></div>
+    </div>
+    <div class="story-text">
+      <h3>Ensemble Energy</h3>
+      <p>The synergy of a full quartet. Blending folk roots with avant-garde musical explorations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Inquiries</div>
+  <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:400;margin-top:20px">Let's work together</h2>
+  <a href="mailto:info@anatoltaran.com" class="contact-link">info@anatoltaran.com</a>
+  <p style="color:var(--muted);letter-spacing:2px">+48 575 832 607</p>
+  <a href="epk.html" target="_blank" style="display:inline-block;margin-top:36px;padding:13px 34px;border:1px solid var(--muted);color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--muted)';this.style.color='var(--muted)'">⬇ Press Kit</a>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/anatoli.taran" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/anatol.taran" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@anatoltaran" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</section>
+
+<footer style="padding:24px 60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)">
+  © 2026 ANATOLI TARAN · WARSAW, POLAND
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-backdrop" id="bookingModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <span class="modal-label">Inquiries</span>
+    <div class="modal-title">Contact Me</div>
+
+    <form id="bookingForm" action="https://formspree.io/f/maqkqgoe" method="POST" onsubmit="handleSubmit(event)">
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required onchange="toggleOtherSubject(this)">
+          <option value="" disabled selected>Select a topic…</option>
+          <option value="Concert / Performance">Concert / Performance</option>
+          <option value="Private Event">Private Event</option>
+          <option value="Festival / Tour">Festival / Tour</option>
+          <option value="Collaboration">Collaboration</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="other-subject-wrap" id="otherSubjectWrap">
+          <input type="text" id="otherSubjectInput" placeholder="Please specify…" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="+48 …">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" required placeholder="Tell us about your event, date, venue…"></textarea>
+      </div>
+
+      <input type="hidden" name="_replyto" id="replyto">
+      <input type="hidden" name="_subject" value="New booking inquiry — anatolitaran.com">
+
+      <button type="submit" class="btn-submit" id="submitBtn">Send</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="check">✦</div>
+      <p>Thank you. Your message has been sent.<br>We'll get back to you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  // Open album on SoundCloud
+  function openAlbum(card){
+    const url=card.getAttribute('data-sc');
+    if(url) window.open(url,'_blank');
+  }
+
+  // Burger menu
+  function toggleMenu(){
+    const burger=document.getElementById('burger');
+    const menu=document.getElementById('mobileMenu');
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+  }
+  function closeMenu(){
+    document.getElementById('burger').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  // Modal
+  function openModal(){
+    // Reset to initial state
+    const form=document.getElementById('bookingForm');
+    const success=document.getElementById('formSuccess');
+    const btn=document.getElementById('submitBtn');
+    form.reset();
+    form.style.display='';
+    success.style.display='none';
+    btn.disabled=false;
+    btn.textContent='Send';
+    document.getElementById('otherSubjectWrap').classList.remove('visible');
+    document.getElementById('otherSubjectInput').required=false;
+    document.getElementById('bookingModal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    document.getElementById('bookingModal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.getElementById('bookingModal').addEventListener('click',function(e){
+    if(e.target===this) closeModal();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') closeModal();
+  });
+
+  function toggleOtherSubject(sel){
+    const wrap=document.getElementById('otherSubjectWrap');
+    const input=document.getElementById('otherSubjectInput');
+    if(sel.value==='Other'){
+      wrap.classList.add('visible');
+      input.required=true;
+    } else {
+      wrap.classList.remove('visible');
+      input.required=false;
+      input.value='';
+    }
+  }
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    const btn=document.getElementById('submitBtn');
+    const form=document.getElementById('bookingForm');
+    // If Other selected, inject custom subject value
+    const subjectSel=document.getElementById('subject');
+    const otherInput=document.getElementById('otherSubjectInput');
+    if(subjectSel.value==='Other' && otherInput.value.trim()){
+      subjectSel.value=otherInput.value.trim();
+    }
+    document.getElementById('replyto').value=document.getElementById('email').value;
+    btn.disabled=true;
+    btn.textContent='Sending…';
+    try{
+      const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      if(res.ok){
+        form.style.display='none';
+        document.getElementById('formSuccess').style.display='block';
+      } else {
+        btn.disabled=false;
+        btn.textContent='Send';
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    } catch(err){
+      btn.disabled=false;
+      btn.textContent='Send Inquiry';
+      alert('Connection error. Please email info@anatoltaran.com directly.');
+    }
+  }
+
+  // YouTube
+  let players=[];
+  function onYouTubeIframeAPIReady(){
+    document.querySelectorAll('.yt-player').forEach((div,i)=>{
+      let p=new YT.Player(div.id,{
+        height:'100%',width:'100%',
+        videoId:div.getAttribute('data-video-id'),
+        events:{onStateChange:onPlayerStateChange}
+      });
+      players.push(p);
+    });
+  }
+  function onPlayerStateChange(e){
+    if(e.data==YT.PlayerState.PLAYING){
+      players.forEach(p=>{if(p!==e.target)p.pauseVideo()});
+    }
+  }
+</script>
+</body>
+</html>
