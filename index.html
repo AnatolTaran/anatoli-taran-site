@@ -202,6 +202,9 @@
   .mobile-menu a{color:#fff;text-decoration:none;font-size:1.2rem;letter-spacing:.18em;text-transform:uppercase;transition:.3s;font-family:'Jost',sans-serif;font-weight:500}
   .mobile-menu a:hover{color:var(--gold)}
   .mobile-menu-close{position:absolute;top:24px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:8px}
+  .mobile-submenu{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:-16px}
+  .mobile-submenu a{font-size:.8rem !important;letter-spacing:.2em;opacity:.65;color:#fff !important}
+  .mobile-submenu a:hover{opacity:1;color:#fff !important}
 
   .hero-socials{position:absolute;right:24px;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;gap:12px;align-items:center}
   .hero-socials a{color:rgba(255,255,255,0.80);font-size:1rem;transition:color .3s}
@@ -278,6 +281,10 @@
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#music" onclick="closeMenu()">Music</a>
   <a href="#projects" onclick="closeMenu()">Projects</a>
+  <div class="mobile-submenu">
+    <a href="taran_quartet.html" onclick="closeMenu()">Taran Quartet</a>
+    <a href="#projects" onclick="closeMenu()">Tango d'Amore</a>
+  </div>
   <a href="#video" onclick="closeMenu()">Performances</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <button onclick="closeMenu();openModal()" class="btn-primary" style="margin-top:20px">Contact Me</button>
