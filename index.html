@@ -38,9 +38,9 @@
   .nav-links a{color:#ffffff;text-decoration:none;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:var(--transition);font-weight:500;font-family:'Jost',sans-serif}
   .nav-links a:hover{color:var(--gold)}
   .nav-dropdown{position:relative}
-  .nav-dropdown>a{display:flex;align-items:center;gap:6px}
-  .nav-dropdown>a::after{content:'';width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:.3s}
-  .dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:rgba(10,10,10,0.97);border:1px solid var(--border);min-width:180px;padding:8px 0}
+  .nav-dropdown>a::after{content:'⌄';font-size:.6rem;margin-left:4px;vertical-align:middle;line-height:1}
+  .nav-dropdown:hover>a{color:var(--gold)}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:transparent;min-width:180px;padding:8px 0}
   .nav-dropdown:hover .dropdown-menu{display:block}
   .dropdown-menu a{display:block;padding:10px 20px;color:#fff;text-decoration:none;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;transition:.3s;font-family:'Jost',sans-serif}
   .dropdown-menu a:hover{color:var(--gold);background:rgba(201,168,76,0.05)}
