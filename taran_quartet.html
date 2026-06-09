@@ -129,7 +129,10 @@
     .contact-strip{padding:60px 24px}
   }
   @media(max-width:600px){
-    .proj-hero{padding:0 24px 14%}
+    .proj-hero{padding:0 24px}
+    .proj-hero-content{display:none}
+    .proj-hero-img-desktop{display:none}
+    .proj-hero-img-mobile{display:block}
     .gallery-row{flex-direction:column}
     .gal-wide,.gal-sq{height:260px;flex:none}
     .musicians-grid{grid-template-columns:1fr 1fr}
@@ -165,8 +168,10 @@
 
 <!-- HERO -->
 <section class="proj-hero">
-  <img class="proj-hero-img" src="taran quartet hero.jpg" alt="Taran Quartet"
+  <img class="proj-hero-img proj-hero-img-desktop" src="taran quartet hero.jpg" alt="Taran Quartet"
     onerror="this.style.display='none'">
+  <img class="proj-hero-img proj-hero-img-mobile" src="taran quartet mobile.jpg" alt="Taran Quartet"
+    style="display:none" onerror="this.style.display='none'">
   <div class="proj-hero-overlay"></div>
   <div class="proj-hero-content">
     <div class="proj-hero-title">Taran<br>Quartet</div>
