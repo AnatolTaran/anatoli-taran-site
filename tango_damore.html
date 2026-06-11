@@ -80,10 +80,13 @@
   .musicians-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--border)}
   .musicians-grid-vocal{grid-template-columns:repeat(2,1fr);max-width:calc(40% + 0.4px)}
   .musicians-grid-vocal .musician-photo-wrap{aspect-ratio:3/4}
-  .musicians-grid-dance{grid-template-columns:1fr;width:calc(30% + 0.6px);background:var(--border)}
   .musician-card{background:var(--bg);padding:0;overflow:hidden;position:relative}
-  .musician-card-dance{background:var(--bg)}
-  .musician-card-dance .musician-photo-wrap{aspect-ratio:3/4}
+  /* Vocal + Dance row */
+  .ensemble-vocal-dance-row{display:flex;align-items:flex-start;gap:0}
+  .vocal-block{flex:none}
+  .vocal-dance-gap{flex:none;width:calc(20% + 0.2px)}
+  .dance-block{flex:none;width:calc(20% + 0.2px)}
+  .dance-block .musicians-grid{max-width:none;width:100%}
   .musician-photo-wrap{position:relative;overflow:hidden;aspect-ratio:3/4}
   .musician-photo{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.3);transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s}
   .musician-card:hover .musician-photo{transform:scale(1.04);filter:grayscale(0)}
@@ -133,7 +136,9 @@
     .about-photo-wrap::after{display:none}
     .musicians-grid{grid-template-columns:1fr 1fr}
     .musicians-grid-vocal{grid-template-columns:1fr 1fr}
-    .musicians-grid-dance{grid-template-columns:1fr}
+    .ensemble-vocal-dance-row{flex-wrap:wrap;gap:24px}
+    .vocal-dance-gap{display:none}
+    .dance-block{width:auto}
     .gal-wide,.gal-sq{height:220px}
     .video-grid{grid-template-columns:1fr}
     .contact-strip{padding:80px 24px}
@@ -280,55 +285,65 @@
     </div>
   </div>
 
-  <!-- Vocal -->
+  <!-- Vocal + Dance Couple -->
   <div class="ensemble-group">
-    <div class="ensemble-group-title">Vocal</div>
-    <div class="musicians-grid musicians-grid-vocal">
+    <div class="ensemble-vocal-dance-row">
 
-      <!-- Ksenia Tomkiewicz -->
-      <div class="musician-card">
-        <div class="musician-photo-wrap">
-          <img class="musician-photo" src="Ksenia Tomkiewicz.jpg" alt="Ksenia Tomkiewicz"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
-        </div>
-        <div class="musician-info">
-          <div class="musician-name">Ksenia Tomkiewicz</div>
-          <div class="musician-role">Vocals</div>
+      <!-- Vocal block -->
+      <div class="vocal-block">
+        <div class="ensemble-group-title">Vocal</div>
+        <div class="musicians-grid musicians-grid-vocal">
+
+          <!-- Ksenia Tomkiewicz -->
+          <div class="musician-card">
+            <div class="musician-photo-wrap">
+              <img class="musician-photo" src="Ksenia Tomkiewicz.jpg" alt="Ksenia Tomkiewicz"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="musician-info">
+              <div class="musician-name">Ksenia Tomkiewicz</div>
+              <div class="musician-role">Vocals</div>
+            </div>
+          </div>
+
+          <!-- Alan Bochnak -->
+          <div class="musician-card">
+            <div class="musician-photo-wrap">
+              <img class="musician-photo" src="Alan Bochnak.jpg" alt="Alan Bochnak"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="musician-info">
+              <div class="musician-name">Alan Bochnak</div>
+              <div class="musician-role">Vocals</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Alan Bochnak -->
-      <div class="musician-card">
-        <div class="musician-photo-wrap">
-          <img class="musician-photo" src="Alan Bochnak.jpg" alt="Alan Bochnak"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
-        </div>
-        <div class="musician-info">
-          <div class="musician-name">Alan Bochnak</div>
-          <div class="musician-role">Vocals</div>
+      <!-- Gap spacer (= one card width) -->
+      <div class="vocal-dance-gap"></div>
+
+      <!-- Dance Couple block -->
+      <div class="dance-block">
+        <div class="ensemble-group-title">Dance Couple</div>
+        <div class="musicians-grid musicians-grid-vocal" style="grid-template-columns:1fr;max-width:none">
+          <div class="musician-card">
+            <div class="musician-photo-wrap">
+              <img class="musician-photo" src="Wiktoria Świerk i Adrian Antos.jpg" alt="Wiktoria Świerk i Adrian Antos"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="musician-info">
+              <div class="musician-name">Wiktoria Świerk &amp; Adrian Antos</div>
+              <div class="musician-role">Argentine Tango</div>
+            </div>
+          </div>
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- Dance Couple -->
-  <div class="ensemble-group">
-    <div class="ensemble-group-title">Dance Couple</div>
-    <div class="musicians-grid musicians-grid-dance">
-      <div class="musician-card musician-card-dance">
-        <div class="musician-photo-wrap">
-          <img class="musician-photo" src="Wiktoria Świerk i Adrian Antos.jpg" alt="Wiktoria Świerk i Adrian Antos"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
-        </div>
-        <div class="musician-info">
-          <div class="musician-name">Wiktoria Świerk &amp; Adrian Antos</div>
-          <div class="musician-role">Argentine Tango</div>
-        </div>
-      </div>
     </div>
   </div>
 
