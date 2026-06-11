@@ -52,13 +52,11 @@
   /* HERO */
   .proj-hero{height:100vh;position:relative;display:flex;align-items:center;padding:0 9%}
   .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:brightness(.95)}
-  .proj-hero-img-mobile{display:none}
   @media(max-width:1000px){
     .proj-hero-img{object-position:center}
   }
   .proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.80) 20%,rgba(10,10,10,0.72) 35%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.30) 65%,rgba(10,10,10,0.12) 80%,rgba(10,10,10,0.03) 92%,transparent 100%)}
   .proj-hero-content{position:relative;z-index:2}
-  .proj-hero-label{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
   .proj-hero-title{font-family:'Syncopate',sans-serif;font-size:clamp(4rem,3.7vw,3.7rem);font-weight:500;text-transform:uppercase;letter-spacing:.10em;color:#fff;line-height:1;margin-bottom:20px}
   .proj-hero-sub{font-size:.80rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 
@@ -118,11 +116,26 @@
   .btn-back{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:13px 34px;border:1px solid var(--muted);color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s}
   .btn-back:hover{border-color:var(--gold);color:var(--gold)}
 
+  /* CONTACT SECTION */
+  .contact-section{padding:140px 60px;text-align:center;background:var(--bg)}
+  .contact-section h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:400}
+  .contact-section .email{color:var(--gold);text-decoration:none;font-size:clamp(1.5rem,4vw,2.5rem);transition:.3s;display:block;margin:30px 0}
+  .contact-section .email:hover{opacity:.7}
+  .contact-section .phone{color:var(--muted);letter-spacing:2px}
+  .contact-section .btn-presentation{display:inline-block;margin-top:36px;padding:13px 34px;border:1px solid var(--muted);color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s}
+  .contact-section .btn-presentation:hover{border-color:var(--gold);color:var(--gold)}
+  .social-links{display:flex;justify-content:center;gap:45px;margin-top:50px}
+  .social-links a{color:var(--muted);font-size:2.2rem;transition:var(--transition)}
+  .social-links a:hover{color:var(--gold);transform:translateY(-8px)}
+
   /* FOOTER */
   footer{padding:24px 60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)}
 
   /* RESPONSIVE */
   @media(max-width:1000px){
+    nav{padding:0 24px}
+    .nav-links{display:none}
+    .burger{display:flex}
     .section{padding:80px 24px}
     .section-divider{margin:0 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
@@ -131,16 +144,14 @@
     .gal-wide,.gal-sq{height:220px}
     .video-grid{grid-template-columns:1fr}
     .contact-strip{padding:60px 24px}
-  }
-  @media(max-width:1000px){
     .proj-hero{padding:0 24px}
     .proj-hero-content{display:none}
     .proj-hero-overlay{background:rgba(10,10,10,0.37)}
     .gallery-row{flex-direction:column}
     .gal-wide,.gal-sq{height:auto;flex:none;width:100%}
     .gal-photo{height:auto;object-fit:unset}
-    .musicians-grid{grid-template-columns:1fr 1fr}
     footer{padding:24px}
+    .contact-section{padding:80px 24px}
   }
 </style>
 </head>
@@ -319,19 +330,19 @@
 </div>
 
 <!-- CONTACT -->
-<section id="contact" style="padding:140px 60px;text-align:center;background:var(--bg)">
-  <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:400">Let's work together</h2>
-  <a href="mailto:info@anatoltaran.com" style="color:var(--gold);text-decoration:none;font-size:clamp(1.5rem,4vw,2.5rem);transition:.3s;display:block;margin:30px 0" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">info@anatoltaran.com</a>
-  <p style="color:var(--muted);letter-spacing:2px">+48 575 832 607</p>
-  <a href="https://docs.google.com/presentation/d/110u5NBjQ_47Hf6zXA5WvZIVThYBHAPWB/present" target="_blank" style="display:inline-block;margin-top:36px;padding:13px 34px;border:1px solid var(--muted);color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--muted)';this.style.color='var(--muted)'">⬇ Booking Presentation</a>
-  <div style="display:flex;justify-content:center;gap:45px;margin-top:50px">
-    <a href="https://www.facebook.com/anatoli.taran" target="_blank" style="color:var(--muted);font-size:2.2rem;transition:var(--transition)" onmouseover="this.style.color='var(--gold)';this.style.transform='translateY(-8px)'" onmouseout="this.style.color='var(--muted)';this.style.transform='none'"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/anatol.taran" target="_blank" style="color:var(--muted);font-size:2.2rem;transition:var(--transition)" onmouseover="this.style.color='var(--gold)';this.style.transform='translateY(-8px)'" onmouseout="this.style.color='var(--muted)';this.style.transform='none'"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@anatoltaran" target="_blank" style="color:var(--muted);font-size:2.2rem;transition:var(--transition)" onmouseover="this.style.color='var(--gold)';this.style.transform='translateY(-8px)'" onmouseout="this.style.color='var(--muted)';this.style.transform='none'"><i class="fab fa-youtube"></i></a>
+<section id="contact" class="contact-section">
+  <h2>Let's work together</h2>
+  <a href="mailto:info@anatoltaran.com" class="email">info@anatoltaran.com</a>
+  <p class="phone">+48 575 832 607</p>
+  <a href="https://docs.google.com/presentation/d/110u5NBjQ_47Hf6zXA5WvZIVThYBHAPWB/present" target="_blank" class="btn-presentation">⬇ Booking Presentation</a>
+  <div class="social-links">
+    <a href="https://www.facebook.com/anatoli.taran" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/anatol.taran" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@anatoltaran" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 </section>
 
-<footer style="padding:24px 60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)">
+<footer>
   © 2026 ANATOLI TARAN · WARSAW, POLAND
 </footer>
 
