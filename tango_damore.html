@@ -73,14 +73,18 @@
   .about-text p{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:24px}
   .about-quote{border-left:2px solid var(--gold);padding:20px 28px;margin:36px 0;font-style:italic;color:var(--text);font-size:1.05rem;line-height:1.7}
 
-  /* ENSEMBLE */
-  .ensemble-section{padding:120px 60px;background:var(--bg2)}
-  .ensemble-inner{max-width:1200px;margin:0 auto}
-  .ensemble-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;margin-top:50px}
-  .ensemble-group-title{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:.8}
-  .ensemble-member{margin-bottom:14px}
-  .member-name{font-size:.95rem;font-weight:500;color:#fff;letter-spacing:.03em}
-  .member-role{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  /* ENSEMBLE / MUSICIAN CARDS */
+  .musicians-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--border)}
+  .musician-card{background:var(--bg);padding:0;overflow:hidden;position:relative}
+  .musician-photo-wrap{position:relative;overflow:hidden;aspect-ratio:3/4}
+  .musician-photo{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.3);transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s}
+  .musician-card:hover .musician-photo{transform:scale(1.04);filter:grayscale(0)}
+  .musician-photo-placeholder{width:100%;height:100%;background:var(--bg2);display:flex;align-items:center;justify-content:center}
+  .musician-photo-placeholder i{font-size:3rem;color:var(--border)}
+  .musician-info{padding:24px 20px}
+  .musician-name{font-size:1rem;font-weight:500;color:#fff;letter-spacing:.04em;margin-bottom:4px}
+  .musician-role{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8}
+  .musician-group-label{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-top:6px;opacity:.7}
 
   /* GALLERY */
   .gallery-wrap{display:flex;flex-direction:column;gap:4px}
@@ -118,14 +122,12 @@
     .section-divider{margin:0 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo-wrap::after{display:none}
-    .ensemble-section{padding:80px 24px}
-    .ensemble-groups{grid-template-columns:1fr 1fr;gap:40px}
+    .musicians-grid{grid-template-columns:1fr 1fr}
     .gal-wide,.gal-sq{height:220px}
     .video-grid{grid-template-columns:1fr}
     .contact-strip{padding:80px 24px}
   }
   @media(max-width:600px){
-    .ensemble-groups{grid-template-columns:1fr}
     .gal-wide,.gal-sq{height:160px}
   }
 </style>
@@ -191,85 +193,138 @@
 <hr class="section-divider">
 
 <!-- ENSEMBLE -->
-<section class="ensemble-section" id="ensemble">
-  <div class="ensemble-inner">
-    <h2 class="sec-title">Ensemble</h2>
-    <div class="ensemble-groups">
+<div class="section" id="ensemble">
+  <h2 class="sec-title">Ensemble</h2>
+  <div class="musicians-grid">
 
-      <!-- Jazz Band -->
-      <div>
-        <div class="ensemble-group-title">Jazz Band</div>
-        <div class="ensemble-member">
-          <div class="member-name">Anatol Taran</div>
-          <div class="member-role">Accordion · Director</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Konstantin Goryachiy</div>
-          <div class="member-role">Piano</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Ludmiła Krukowska</div>
-          <div class="member-role">Double Bass</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Marina Krysztoforska</div>
-          <div class="member-role">Violin</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Rafał Dubicki</div>
-          <div class="member-role">Trumpet</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Włodzimierz Michnowicz</div>
-          <div class="member-role">Saxophone</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Shachar Elnatan</div>
-          <div class="member-role">Guitar</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Kuba Kinsner</div>
-          <div class="member-role">Drums</div>
-        </div>
+    <!-- Anatol Taran -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Anatol Taran.jpg" alt="Anatol Taran"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
       </div>
-
-      <!-- Vocals -->
-      <div>
-        <div class="ensemble-group-title">Vocals</div>
-        <div class="ensemble-member">
-          <div class="member-name">Ksenia Tomkiewicz</div>
-          <div class="member-role">Soprano</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Alan Bochnak</div>
-          <div class="member-role">Tenor</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Michał Janicki</div>
-          <div class="member-role">Baritone</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Oskar Jasiński</div>
-          <div class="member-role">Tenor</div>
-        </div>
+      <div class="musician-info">
+        <div class="musician-name">Anatol Taran</div>
+        <div class="musician-role">Accordion · Director</div>
+        <div class="musician-group-label">Jazz Band</div>
       </div>
-
-      <!-- Dance -->
-      <div>
-        <div class="ensemble-group-title">Dance</div>
-        <div class="ensemble-member">
-          <div class="member-name">Wiktoria Świerk</div>
-          <div class="member-role">Argentine Tango</div>
-        </div>
-        <div class="ensemble-member">
-          <div class="member-name">Adrian Antos</div>
-          <div class="member-role">Argentine Tango</div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Ludmiła Krukowska -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Ludmila Krukowska.png" alt="Ludmiła Krukowska"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Ludmiła Krukowska</div>
+        <div class="musician-role">Double Bass</div>
+        <div class="musician-group-label">Jazz Band</div>
+      </div>
+    </div>
+
+    <!-- Kuba Kinsner -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Kuba Kinsner.png" alt="Kuba Kinsner"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Kuba Kinsner</div>
+        <div class="musician-role">Drums</div>
+        <div class="musician-group-label">Jazz Band</div>
+      </div>
+    </div>
+
+    <!-- Konstantin Goryachiy -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Konstantin Goryachiy.jpg" alt="Konstantin Goryachiy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Konstantin Goryachiy</div>
+        <div class="musician-role">Piano</div>
+        <div class="musician-group-label">Jazz Band</div>
+      </div>
+    </div>
+
+    <!-- Marina Krysztoforska -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Marina Krysztoforska.jpg" alt="Marina Krysztoforska"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Marina Krysztoforska</div>
+        <div class="musician-role">Violin</div>
+        <div class="musician-group-label">Jazz Band</div>
+      </div>
+    </div>
+
+    <!-- Ksenia Tomkiewicz -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Ksenia Tomkiewicz.jpg" alt="Ksenia Tomkiewicz"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Ksenia Tomkiewicz</div>
+        <div class="musician-role">Vocals</div>
+        <div class="musician-group-label">Vocal</div>
+      </div>
+    </div>
+
+    <!-- Alan Bochnak -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Alan Bochnak.jpg" alt="Alan Bochnak"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Alan Bochnak</div>
+        <div class="musician-role">Vocals</div>
+        <div class="musician-group-label">Vocal</div>
+      </div>
+    </div>
+
+    <!-- Wiktoria Świerk -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Wiktoria Świerk.jpg" alt="Wiktoria Świerk"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Wiktoria Świerk</div>
+        <div class="musician-role">Argentine Tango</div>
+        <div class="musician-group-label">Dance Couple</div>
+      </div>
+    </div>
+
+    <!-- Adrian Antos -->
+    <div class="musician-card">
+      <div class="musician-photo-wrap">
+        <img class="musician-photo" src="Adrian Antos.jpg" alt="Adrian Antos"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="musician-info">
+        <div class="musician-name">Adrian Antos</div>
+        <div class="musician-role">Argentine Tango</div>
+        <div class="musician-group-label">Dance Couple</div>
+      </div>
+    </div>
+
   </div>
-</section>
+</div>
 
 <hr class="section-divider">
 
