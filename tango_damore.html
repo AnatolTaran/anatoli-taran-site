@@ -78,8 +78,8 @@
   .ensemble-group:last-child{margin-bottom:0}
   .ensemble-group-title{font-size:.65rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:16px;padding-left:2px}
   .musicians-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--border)}
-  .musicians-grid-vocal{grid-template-columns:repeat(2,1fr)}
-  .musicians-grid-vocal .musician-photo-wrap{aspect-ratio:unset;height:340px}
+  .musicians-grid-vocal{grid-template-columns:repeat(2,1fr);max-width:calc(40% + 0.4px)}
+  .musicians-grid-vocal .musician-photo-wrap{aspect-ratio:3/4}
   .musicians-grid-dance{grid-template-columns:1fr;width:calc(30% + 0.6px);background:var(--border)}
   .musician-card{background:var(--bg);padding:0;overflow:hidden;position:relative}
   .musician-card-dance{background:var(--bg)}
@@ -215,7 +215,7 @@
       <!-- Anatol Taran -->
       <div class="musician-card">
         <div class="musician-photo-wrap">
-          <img class="musician-photo" src="photo8.jpg" alt="Anatol Taran"
+          <img class="musician-photo" src="Anatol Taran.jpg" alt="Anatol Taran"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
         </div>
