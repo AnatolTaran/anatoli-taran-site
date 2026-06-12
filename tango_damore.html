@@ -135,17 +135,29 @@
     .section-divider{margin:0 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo-wrap::after{display:none}
-    /* Jazz Band: 2 cols; hide grey gap after odd last card */
+
+    /* Jazz Band: 2 cols, ::after fills empty 6th cell */
     .musicians-grid{grid-template-columns:1fr 1fr}
     .musicians-grid::after{content:'';background:var(--bg);display:block}
-    /* Vocal+Dance row: stack vertically */
+
+    /* Vocal + Dance: stack vertically */
     .ensemble-vocal-dance-row{display:flex;flex-direction:column;gap:32px}
-    .vocal-block{grid-column:unset}
+    .vocal-block{width:100%}
     .vocal-block .musicians-grid-inner{grid-template-columns:1fr 1fr}
     .vocal-dance-gap{display:none}
-    .dance-block{grid-column:unset;width:100%}
-    .dance-block .musicians-grid-inner{grid-template-columns:1fr}
-    .dance-block .musician-card .musician-photo-wrap{aspect-ratio:3/4;height:auto;flex:unset}
+
+    /* Dance block: full width, photo same HEIGHT as vocal cards
+       Vocal card photo: width = 50vw - 24px padding, aspect 3/4
+       So vocal photo height ≈ (50vw - 24px) * 4/3
+       Dance card photo: width = 100vw - 48px, we want same height
+       So aspect-ratio = width/height = (100vw-48px) / ((50vw-24px)*4/3)
+                       = (100vw-48px)*3 / ((50vw-24px)*4)
+                       ≈ 3/2  (at typical mobile widths) */
+    .dance-block{width:100%;display:block}
+    .dance-block .musicians-grid-inner{display:block}
+    .dance-block .musician-card{display:block;height:auto}
+    .dance-block .musician-photo-wrap{aspect-ratio:3/2;flex:none}
+
     .gal-wide,.gal-sq{height:220px}
     .video-grid{grid-template-columns:1fr}
     .contact-strip{padding:80px 24px}
