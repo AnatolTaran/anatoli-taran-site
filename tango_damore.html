@@ -135,12 +135,17 @@
     .section-divider{margin:0 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo-wrap::after{display:none}
+    /* Jazz Band: 2 cols; hide grey gap after odd last card */
     .musicians-grid{grid-template-columns:1fr 1fr}
-    .musicians-grid-inner{grid-template-columns:1fr 1fr !important}
-    .ensemble-vocal-dance-row{grid-template-columns:1fr 1fr}
-    .vocal-block{grid-column:1/3}
+    .musicians-grid::after{content:'';background:var(--bg);display:block}
+    /* Vocal+Dance row: stack vertically */
+    .ensemble-vocal-dance-row{display:flex;flex-direction:column;gap:32px}
+    .vocal-block{grid-column:unset}
+    .vocal-block .musicians-grid-inner{grid-template-columns:1fr 1fr}
     .vocal-dance-gap{display:none}
-    .dance-block{grid-column:1/3}
+    .dance-block{grid-column:unset;width:50%}
+    .dance-block .musicians-grid-inner{grid-template-columns:1fr}
+    .dance-block .musician-card .musician-photo-wrap{aspect-ratio:3/4}
     .gal-wide,.gal-sq{height:220px}
     .video-grid{grid-template-columns:1fr}
     .contact-strip{padding:80px 24px}
