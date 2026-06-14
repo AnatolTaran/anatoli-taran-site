@@ -31,34 +31,28 @@
   body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
 
   /* NAV */
-  nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,transparent 100%);border-bottom:none}
-  .nav-logo{text-decoration:none;font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,transparent 100%)}
+  .nav-logo{text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
   .nav-links{display:flex;gap:40px;list-style:none}
   .nav-links a{color:#fff;text-decoration:none;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:var(--transition);font-weight:500}
   .nav-links a:hover{color:var(--gold)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
   .burger span{display:block;width:24px;height:1px;background:#fff;transition:.3s}
-  @media(max-width:1000px){
-    nav{padding:0 24px}
-    .nav-links{display:none}
-    .burger{display:flex}
-  }
 
   /* MOBILE MENU */
   .mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:36px}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
+  .mobile-menu a:hover{color:var(--gold)}
 
   /* HERO */
   .proj-hero{height:100vh;position:relative;display:flex;align-items:center;padding:0 9%}
   .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:brightness(.95)}
-  @media(max-width:1000px){
-    .proj-hero-img{object-position:center}
-  }
   .proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.80) 20%,rgba(10,10,10,0.72) 35%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.30) 65%,rgba(10,10,10,0.12) 80%,rgba(10,10,10,0.03) 92%,transparent 100%)}
   .proj-hero-content{position:relative;z-index:2}
   .proj-hero-title{font-family:'Syncopate',sans-serif;font-size:3.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.10em;color:#fff;line-height:1;margin-bottom:20px}
   .proj-hero-sub{font-size:.80rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .proj-hero-location{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
 
   /* SECTION BASE */
   .section{padding:120px 60px;max-width:1200px;margin:0 auto}
@@ -71,13 +65,15 @@
   .about-photo-wrap{position:relative}
   .about-photo-wrap::after{content:'';position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);z-index:0}
   .about-photo{width:100%;position:relative;z-index:1;display:block;filter:grayscale(.15)}
+  .about-photo-placeholder{display:none;width:100%;aspect-ratio:3/4;background:var(--bg2);align-items:center;justify-content:center}
+  .about-photo-placeholder i{font-size:3rem;color:var(--border)}
   .about-text p{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:24px}
   .about-quote{border-left:2px solid var(--gold);padding:20px 28px;margin:36px 0;font-style:italic;color:var(--text);font-size:1.05rem;line-height:1.7}
   .about-quote cite{display:block;margin-top:12px;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-style:normal}
 
   /* MUSICIANS */
   .musicians-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
-  .musician-card{background:var(--bg);padding:0;overflow:hidden;position:relative}
+  .musician-card{background:var(--bg);overflow:hidden;position:relative}
   .musician-photo-wrap{position:relative;overflow:hidden;aspect-ratio:3/4}
   .musician-photo{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.3);transition:transform .6s cubic-bezier(0.16,1,0.3,1),filter .5s}
   .musician-card:hover .musician-photo{transform:scale(1.04);filter:grayscale(0)}
@@ -99,24 +95,7 @@
   .gal-placeholder i{font-size:2rem;color:var(--border)}
   .gal-placeholder span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border)}
 
-  /* VIDEO */
-  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-  .video-item{position:relative;aspect-ratio:16/9;background:var(--bg2);overflow:hidden}
-  .video-item iframe{width:100%;height:100%;border:none;display:block}
-  .video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-  .video-placeholder i{font-size:2.5rem;color:var(--border)}
-  .video-placeholder span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border)}
-
-  /* CONTACT STRIP */
-  .contact-strip{padding:100px 60px;text-align:center;border-top:1px solid var(--border)}
-  .contact-strip h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:400;margin-bottom:32px}
-  .contact-strip a.email{color:var(--gold);text-decoration:none;font-size:clamp(1.2rem,3vw,2rem);transition:.3s;display:block;margin-bottom:12px}
-  .contact-strip a.email:hover{opacity:.7}
-  .contact-strip .phone{color:var(--muted);letter-spacing:2px;font-size:.9rem}
-  .btn-back{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:13px 34px;border:1px solid var(--muted);color:var(--muted);text-decoration:none;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;transition:all .3s}
-  .btn-back:hover{border-color:var(--gold);color:var(--gold)}
-
-  /* CONTACT SECTION */
+  /* CONTACT */
   .contact-section{padding:140px 60px;text-align:center;background:var(--bg)}
   .contact-section h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:400}
   .contact-section .email{color:var(--gold);text-decoration:none;font-size:clamp(1.5rem,4vw,2.5rem);transition:.3s;display:block;margin:30px 0}
@@ -136,22 +115,21 @@
     nav{padding:0 24px}
     .nav-links{display:none}
     .burger{display:flex}
+    .proj-hero{padding:0 24px}
+    .proj-hero-img{object-position:center}
+    .proj-hero-overlay{background:rgba(10,10,10,0.37)}
+    .proj-hero-content{display:none}
     .section{padding:80px 24px}
     .section-divider{margin:0 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo-wrap::after{display:none}
     .musicians-grid{grid-template-columns:1fr 1fr}
     .gal-wide,.gal-sq{height:220px}
-    .video-grid{grid-template-columns:1fr}
-    .contact-strip{padding:60px 24px}
-    .proj-hero{padding:0 24px}
-    .proj-hero-content{display:none}
-    .proj-hero-overlay{background:rgba(10,10,10,0.37)}
     .gallery-row{flex-direction:column}
     .gal-wide,.gal-sq{height:auto;flex:none;width:100%}
-    .gal-photo{height:auto;object-fit:unset}
-    footer{padding:24px}
+    .gal-photo{height:auto;object-fit:initial}
     .contact-section{padding:80px 24px}
+    footer{padding:24px}
   }
 </style>
 </head>
@@ -201,8 +179,8 @@
     <div class="about-photo-wrap">
       <img src="taran quartet about.jpg" class="about-photo" alt="Taran Quartet"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div style="display:none;width:100%;aspect-ratio:3/4;background:var(--bg2);align-items:center;justify-content:center">
-        <i class="fas fa-compact-disc" style="font-size:3rem;color:var(--border)"></i>
+      <div class="about-photo-placeholder">
+        <i class="fas fa-compact-disc"></i>
       </div>
     </div>
     <div class="about-text">
@@ -212,9 +190,8 @@
         "The accordion is not a folk instrument here. It leads, breathes, and improvises — on equal terms with the rhythm section."
         <cite>— Anatoli Taran</cite>
       </div>
-      <p style="font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)">
-        Warsaw, Poland · Available across Europe
-      </p>
+      <p>The quartet has performed at international jazz festivals across Poland and Europe, and won the 67th Trophée Mondial de l'Accordéon in France in 2017.</p>
+      <p class="proj-hero-location">Warsaw, Poland · Available across Europe</p>
     </div>
   </div>
 </div>
@@ -226,7 +203,6 @@
   <h2 class="sec-title">Musicians</h2>
   <div class="musicians-grid">
 
-    <!-- Anatol Taran -->
     <div class="musician-card">
       <div class="musician-photo-wrap">
         <img class="musician-photo" src="photo8.jpg" alt="Anatol Taran"
@@ -239,10 +215,9 @@
       </div>
     </div>
 
-    <!-- Łukasz Chyliński -->
     <div class="musician-card">
       <div class="musician-photo-wrap">
-        <img class="musician-photo" src="Łukasz Chyliński.png" alt="Łukasz Chyliński"
+        <img class="musician-photo" src="Łukasz Chyliński.png" alt="Łukasz Chyliński"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="musician-photo-placeholder" style="display:none"><i class="fas fa-user"></i></div>
       </div>
@@ -252,7 +227,6 @@
       </div>
     </div>
 
-    <!-- Ludmila Krukowska -->
     <div class="musician-card">
       <div class="musician-photo-wrap">
         <img class="musician-photo" src="Ludmila_Krukowska_Quartet.png" alt="Ludmila Krukowska"
@@ -265,7 +239,6 @@
       </div>
     </div>
 
-    <!-- Kuba Kinsner -->
     <div class="musician-card">
       <div class="musician-photo-wrap">
         <img class="musician-photo" src="Kuba Kinsner.png" alt="Kuba Kinsner"
@@ -283,12 +256,11 @@
 
 <hr class="section-divider">
 
-<!-- ON STAGE -->
+<!-- GALLERY -->
 <div class="section" id="gallery">
   <h2 class="sec-title">Gallery</h2>
   <div class="gallery-wrap">
 
-    <!-- Row 1: wide + 2 square -->
     <div class="gallery-row">
       <div class="gal-wide">
         <img class="gal-photo" src="concert photo1.jpg" alt="Taran Quartet live"
@@ -307,7 +279,6 @@
       </div>
     </div>
 
-    <!-- Row 2: 2 square + wide (зеркально) -->
     <div class="gallery-row">
       <div class="gal-sq">
         <img class="gal-photo" src="concert photo4.jpg" alt="Taran Quartet live"
