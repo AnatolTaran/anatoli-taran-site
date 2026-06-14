@@ -31,46 +31,41 @@
   body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
 
   /* NAV */
-  nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,transparent 100%);border-bottom:none}
-  .nav-logo{text-decoration:none;font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  nav{position:fixed;top:0;width:100%;z-index:300;padding:0 60px;height:80px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,10,10,0.85) 0%,transparent 100%)}
+  .nav-logo{text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
   .nav-links{display:flex;gap:40px;list-style:none}
   .nav-links a{color:#fff;text-decoration:none;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:var(--transition);font-weight:500}
   .nav-links a:hover{color:var(--gold)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
   .burger span{display:block;width:24px;height:1px;background:#fff;transition:.3s}
-  @media(max-width:1000px){
-    nav{padding:0 24px}
-    .nav-links{display:none}
-    .burger{display:flex}
-  }
 
   /* MOBILE MENU */
   .mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:36px}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase}
+  .mobile-menu a{color:#fff;text-decoration:none;font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
+  .mobile-menu a:hover{color:var(--gold)}
 
   /* HERO */
   .proj-hero{height:100vh;position:relative;display:flex;align-items:center;padding:0 9% 15%}
   .proj-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 23%;filter:brightness(.90)}
+  .proj-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.80) 20%,rgba(10,10,10,0.72) 35%,rgba(10,10,10,0.55) 50%,rgba(10,10,10,0.30) 65%,rgba(10,10,10,0.12) 80%,rgba(10,10,10,0.03) 92%,transparent 100%)}
   .proj-hero-content{position:relative;z-index:2}
   .proj-hero-title{font-family:'Syncopate',sans-serif;font-size:3.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.10em;color:#fff;line-height:1;margin-bottom:20px}
   .proj-hero-sub{font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);padding-left:24px}
-  @media(max-width:1000px){
-    .proj-hero-img{object-position:center}
-    .proj-hero-title{display:none}
-    .proj-hero-sub{display:none}
-  }
 
   /* SECTION BASE */
   .section{padding:120px 60px;max-width:1200px;margin:0 auto}
   .section-divider{border:none;border-top:1px solid var(--border);margin:0 60px}
   .sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:500;color:#fff;letter-spacing:.04em;line-height:1.2;margin-bottom:40px}
+  .sec-title--gold{color:var(--gold)}
 
   /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
   .about-photo-wrap{position:relative}
   .about-photo-wrap::after{content:'';position:absolute;inset:20px -20px -20px 20px;border:1px solid var(--gold);z-index:0}
   .about-photo{width:100%;position:relative;z-index:1;display:block;filter:grayscale(.15)}
+  .about-photo-placeholder{display:none;width:100%;aspect-ratio:3/4;background:var(--bg2);align-items:center;justify-content:center}
+  .about-photo-placeholder i{font-size:3rem;color:var(--border)}
   .about-text p{color:var(--muted);font-size:1rem;line-height:1.9;margin-bottom:24px}
   .about-quote{border-left:2px solid var(--gold);padding:20px 28px;margin:36px 0;font-style:italic;color:var(--text);font-size:1.05rem;line-height:1.7}
 
@@ -79,9 +74,9 @@
   .ensemble-group:last-child{margin-bottom:0}
   .ensemble-group-title{font-size:.65rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:16px;padding-left:2px}
   .musicians-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--border)}
-  .musician-card{background:var(--bg);padding:0;overflow:hidden;position:relative}
+  .musician-card{background:var(--bg);overflow:hidden;position:relative}
   /* Vocal + Dance: unified 5-column row */
-  .ensemble-vocal-dance-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:transparent}
+  .ensemble-vocal-dance-row{display:grid;grid-template-columns:repeat(5,1fr);background:transparent}
   .vocal-block{grid-column:1/3}
   .vocal-block .musicians-grid-inner{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border)}
   .vocal-block .musician-photo-wrap{aspect-ratio:3/4}
@@ -116,9 +111,6 @@
   .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
   .video-item{position:relative;aspect-ratio:16/9;background:var(--bg2);overflow:hidden}
   .video-item iframe{width:100%;height:100%;border:none;display:block}
-  .video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-  .video-placeholder i{font-size:2.5rem;color:var(--border)}
-  .video-placeholder span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--border)}
 
   /* CONTACT */
   .contact-strip{padding:140px 60px;text-align:center;border-top:1px solid var(--border)}
@@ -126,39 +118,38 @@
   .contact-strip a.email{color:var(--gold);text-decoration:none;font-size:clamp(1.2rem,3vw,2rem);transition:.3s;display:block;margin-bottom:12px}
   .contact-strip a.email:hover{opacity:.7}
   .contact-strip .phone{color:var(--muted);letter-spacing:2px;font-size:.9rem}
+  .social-links{display:flex;justify-content:center;gap:45px;margin-top:50px}
+  .social-links a{color:var(--muted);font-size:2.2rem;transition:var(--transition)}
+  .social-links a:hover{color:var(--gold);transform:translateY(-8px)}
 
   /* FOOTER */
   footer{padding:24px 60px;text-align:center;color:var(--muted);font-size:.65rem;letter-spacing:3px;border-top:1px solid var(--border)}
 
   /* RESPONSIVE */
   @media(max-width:1000px){
+    nav{padding:0 24px}
+    .nav-links{display:none}
+    .burger{display:flex}
+    .proj-hero-img{object-position:center}
+    .proj-hero-title{display:none}
+    .proj-hero-sub{display:none}
     .section{padding:80px 24px}
     .section-divider{margin:0 24px}
     .about-grid{grid-template-columns:1fr;gap:50px}
     .about-photo-wrap::after{display:none}
-
     /* Jazz Band: 2 cols, ::after fills empty 6th cell */
     .musicians-grid{grid-template-columns:1fr 1fr}
     .musicians-grid::after{content:'';background:var(--bg);display:block}
-
     /* Vocal + Dance: stack vertically */
     .ensemble-vocal-dance-row{display:flex;flex-direction:column;gap:32px}
     .vocal-block{width:100%}
     .vocal-block .musicians-grid-inner{grid-template-columns:1fr 1fr}
     .vocal-dance-gap{display:none}
-
-    /* Dance block: full width, photo same HEIGHT as vocal cards
-       Vocal card photo: width = 50vw - 24px padding, aspect 3/4
-       So vocal photo height ≈ (50vw - 24px) * 4/3
-       Dance card photo: width = 100vw - 48px, we want same height
-       So aspect-ratio = width/height = (100vw-48px) / ((50vw-24px)*4/3)
-                       = (100vw-48px)*3 / ((50vw-24px)*4)
-                       ≈ 3/2  (at typical mobile widths) */
+    /* Dance block: full width, aspect matched to vocal card height on mobile */
     .dance-block{width:100%;display:block}
     .dance-block .musicians-grid-inner{display:block}
     .dance-block .musician-card{display:block;height:auto}
     .dance-block .musician-photo-wrap{aspect-ratio:3/2;flex:none}
-
     .gal-wide,.gal-sq{height:220px}
     .video-grid{grid-template-columns:1fr}
     .contact-strip{padding:80px 24px}
@@ -202,7 +193,6 @@
   <div class="proj-hero-content">
     <h1 class="proj-hero-title">Tango<br>d'Amore</h1>
     <div class="proj-hero-sub">Jazz Band · Vocalists · Dance</div>
-
   </div>
 </section>
 
@@ -212,10 +202,12 @@
     <div class="about-photo-wrap">
       <img class="about-photo" src="Dance_Couple_About.jpg" alt="Tango d'Amore"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div style="display:none;width:100%;aspect-ratio:3/4;background:var(--bg2);align-items:center;justify-content:center"><i class="fas fa-image" style="font-size:3rem;color:var(--border)"></i></div>
+      <div class="about-photo-placeholder">
+        <i class="fas fa-image"></i>
+      </div>
     </div>
     <div class="about-text">
-      <h2 class="sec-title" style="color:var(--gold)">Where Warsaw Meets<br>Buenos Aires</h2>
+      <h2 class="sec-title sec-title--gold">Where Warsaw Meets<br>Buenos Aires</h2>
       <p>Tango d'Amore is a concert journey through the golden age of tango — from the smoky cabarets of pre-war Warsaw to the passionate streets of Buenos Aires. The programme brings together the most beloved Polish tangos of the 1920s and 30s in original arrangements that breathe new life into these timeless melodies through the prism of Argentine tango and jazz.</p>
       <p>Works by Jerzy Petersburski stand alongside Astor Piazzolla's nuevo tango and the great classics of the Argentine repertoire — <em>Libertango</em>, <em>La Cumparsita</em>, <em>Por una Cabeza</em>. Melodies of love, longing and passion, carried by live band, soaring voices and the wordless eloquence of dance.</p>
       <div class="about-quote">
@@ -237,7 +229,6 @@
     <div class="ensemble-group-title">Jazz Band</div>
     <div class="musicians-grid">
 
-      <!-- Anatol Taran -->
       <div class="musician-card">
         <div class="musician-photo-wrap">
           <img class="musician-photo" src="photo8.jpg" alt="Anatol Taran"
@@ -250,7 +241,6 @@
         </div>
       </div>
 
-      <!-- Ludmiła Krukowska -->
       <div class="musician-card">
         <div class="musician-photo-wrap">
           <img class="musician-photo" src="Ludmila_Krukowska_Tango.jpg" alt="Ludmiła Krukowska"
@@ -263,7 +253,6 @@
         </div>
       </div>
 
-      <!-- Kuba Kinsner -->
       <div class="musician-card">
         <div class="musician-photo-wrap">
           <img class="musician-photo" src="Kuba Kinsner.png" alt="Kuba Kinsner"
@@ -276,7 +265,6 @@
         </div>
       </div>
 
-      <!-- Konstantin Goryachiy -->
       <div class="musician-card">
         <div class="musician-photo-wrap">
           <img class="musician-photo" src="Konstantin Goryachiy.jpg" alt="Konstantin Goryachiy"
@@ -289,7 +277,6 @@
         </div>
       </div>
 
-      <!-- Marina Krysztoforska -->
       <div class="musician-card">
         <div class="musician-photo-wrap">
           <img class="musician-photo" src="Marina Krysztoforska.jpg" alt="Marina Krysztoforska"
@@ -309,12 +296,10 @@
   <div class="ensemble-group">
     <div class="ensemble-vocal-dance-row">
 
-      <!-- Vocal block -->
       <div class="vocal-block">
         <div class="ensemble-group-title">Vocal</div>
         <div class="musicians-grid-inner">
 
-          <!-- Ksenia Tomkiewicz -->
           <div class="musician-card">
             <div class="musician-photo-wrap">
               <img class="musician-photo" src="Ksenia Tomkiewicz.jpg" alt="Ksenia Tomkiewicz"
@@ -327,7 +312,6 @@
             </div>
           </div>
 
-          <!-- Alan Bochnak -->
           <div class="musician-card">
             <div class="musician-photo-wrap">
               <img class="musician-photo" src="Alan Bochnak.jpg" alt="Alan Bochnak"
@@ -343,10 +327,8 @@
         </div>
       </div>
 
-      <!-- Gap spacer (= one card width) -->
       <div class="vocal-dance-gap"></div>
 
-      <!-- Dance Couple block -->
       <div class="dance-block">
         <div class="ensemble-group-title">Dance Couple</div>
         <div class="musicians-grid-inner">
@@ -418,7 +400,6 @@
 <div class="section" id="video">
   <h2 class="sec-title">Video</h2>
   <div class="video-grid">
-    <!-- Замени VIDEO_ID_1 и VIDEO_ID_2 на реальные ID из YouTube -->
     <div class="video-item">
       <iframe src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0" allowfullscreen loading="lazy" title="Tango d'Amore — Video 1"></iframe>
     </div>
@@ -435,12 +416,11 @@
   <h2>Book the Show</h2>
   <a href="mailto:info@anatoltaran.com" class="email">info@anatoltaran.com</a>
   <p class="phone">+48 575 832 607</p>
-  <div style="display:flex;justify-content:center;gap:45px;margin-top:50px">
-    <a href="https://www.facebook.com/anatoli.taran" target="_blank" style="color:var(--muted);font-size:2.2rem;transition:var(--transition)" onmouseover="this.style.color='var(--gold)';this.style.transform='translateY(-8px)'" onmouseout="this.style.color='var(--muted)';this.style.transform='none'"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/anatol.taran" target="_blank" style="color:var(--muted);font-size:2.2rem;transition:var(--transition)" onmouseover="this.style.color='var(--gold)';this.style.transform='translateY(-8px)'" onmouseout="this.style.color='var(--muted)';this.style.transform='none'"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@anatoltaran" target="_blank" style="color:var(--muted);font-size:2.2rem;transition:var(--transition)" onmouseover="this.style.color='var(--gold)';this.style.transform='translateY(-8px)'" onmouseout="this.style.color='var(--muted)';this.style.transform='none'"><i class="fab fa-youtube"></i></a>
+  <div class="social-links">
+    <a href="https://www.facebook.com/anatoli.taran" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/anatol.taran" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@anatoltaran" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
-
 </section>
 
 <footer>
